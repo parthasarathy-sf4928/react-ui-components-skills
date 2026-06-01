@@ -1,6 +1,6 @@
 ---
 name: syncfusion-react-notifications
-description: Comprehensive guide for implementing Syncfusion React Notification components including Message, Skeleton and Toast and Spinner. Use this when showing informational, success, warning, or error messages; configuring severity levels and display variants (Text, Outlined, Filled); handling message dismissal; toast positioning, toast templates, toast animations; displaying skeleton loading placeholders with shimmer animations (Wave, Pulse, Fade) and shapes (Circle, Rectangle, Text); or customizing notification appearance and accessibility.
+description: Comprehensive guide for implementing Syncfusion React Notification components including Badge, Message, Skeleton, Toast, and Spinner. Use this when applying status indicators and badges with color variants and shapes; showing informational, success, warning, or error messages; configuring severity levels and display variants (Text, Outlined, Filled); handling message dismissal; toast positioning, toast templates, toast animations; displaying skeleton loading placeholders with shimmer animations (Wave, Pulse, Fade) and shapes (Circle, Rectangle, Text); or customizing notification appearance and accessibility.
 metadata:
   author: "Syncfusion Inc"
   category: "Notifications"
@@ -13,18 +13,20 @@ metadata:
 
 The Syncfusion React Toast component displays brief, non-intrusive notifications that auto-dismiss after a configurable timeout. Toasts support rich content through templates, action buttons, animated entry/exit, precise positioning, and programmatic control via `ToastUtility`.
 
-## Package and Setup
+> 🛑 **Agentic use:** Do not execute multiple steps autonomously. Confirm with the user before each action (install, run, file creation).
+
+### Package and Setup
 
 📄 **Read:** [references/getting-started.md](references/toast-getting-started.md)
-- Installing `@syncfusion/ej2-react-notifications`
+- Installing `@syncfusion/ej2-react-notifications` 🛑 *STOP — Do not install packages autonomously. Ask the user to run: `npm install @syncfusion/ej2-react-notifications@33.x.x --save`. Verify with `npm audit`*
 - CSS imports for all required themes
 - Basic `ToastComponent` usage (class and functional patterns)
 - Rendering toast in a custom target container
 - Triggering show in the `created` event
 
-## Documentation and Navigation Guide
+### Documentation and Navigation Guide
 
-### Configuration and Layout
+#### Configuration and Layout
 
 📄 **Read:** [references/configuration.md](references/toast-configuration.md)
 - Setting `title` and `content` (plain text, HTML, elements)
@@ -34,7 +36,7 @@ The Syncfusion React Toast component displays brief, non-intrusive notifications
 - `newestOnTop` stacking order
 - `width` and `height` dimensions (px, %, auto)
 
-### Positioning
+#### Positioning
 
 📄 **Read:** [references/position.md](references/toast-position.md)
 - Nine predefined X/Y positions (Left, Center, Right / Top, Bottom)
@@ -42,7 +44,7 @@ The Syncfusion React Toast component displays brief, non-intrusive notifications
 - Targeting a container element for relative positioning
 - Multiple Toast instances at different screen positions
 
-### Timeout and Dismissal
+#### Timeout and Dismissal
 
 📄 **Read:** [references/timeout-and-dismissal.md](references/toast-timeout-and-dismissal.md)
 - `timeOut` property (default 5000 ms)
@@ -51,7 +53,7 @@ The Syncfusion React Toast component displays brief, non-intrusive notifications
 - Click-to-close via `clickToClose` in the `click` event
 - Preventing mobile swipe dismissal with `beforeClose`
 
-### Templates and Styling
+#### Templates and Styling
 
 📄 **Read:** [references/templates-and-styling.md](references/toast-templates-and-styling.md)
 - `template` property with HTML strings and DOM selectors
@@ -59,7 +61,7 @@ The Syncfusion React Toast component displays brief, non-intrusive notifications
 - Semantic CSS classes: `e-toast-success`, `e-toast-info`, `e-toast-warning`, `e-toast-danger`
 - CSS selectors for title, content, icon, and background customization
 
-### Animation
+#### Animation
 
 📄 **Read:** [references/animation.md](references/toast-animation.md)
 - `animation` property with `show` and `hide` effect settings
@@ -67,7 +69,7 @@ The Syncfusion React Toast component displays brief, non-intrusive notifications
 - Default: FadeIn / FadeOut
 - Accessibility: reduced-motion considerations
 
-### Toast Services and Advanced Patterns
+#### Toast Services and Advanced Patterns
 
 📄 **Read:** [references/toast-services.md](references/toast-services.md)
 - `ToastUtility.show()` for quick toasts without component instantiation
@@ -77,7 +79,7 @@ The Syncfusion React Toast component displays brief, non-intrusive notifications
 - Restricting maximum simultaneous toasts with `beforeOpen`
 - Preventing duplicate toasts using `beforeOpen` + `close`
 
-### Accessibility
+#### Accessibility
 
 📄 **Read:** [references/accessibility.md](references/toast-accessibility.md)
 - WAI-ARIA: `role="alert"`, `aria-live="assertive"`, `aria-label`
@@ -86,14 +88,16 @@ The Syncfusion React Toast component displays brief, non-intrusive notifications
 - RTL support via `enableRtl`
 - Mobile and accessibility checker validation
 
-### API Reference
+#### API Reference
 
 📄 **Read:** [references/api.md](references/toast-api.md)
 - All properties with types, defaults, and descriptions
 - `show()` and `hide()` method signatures
 - All events: `beforeOpen`, `open`, `click`, `beforeClose`, `close`, `created`, `destroyed`, `beforeSanitizeHtml`
 
-## Quick Start Example
+### Quick Start Example
+
+> 🛑 *STOP — Do not start the dev server autonomously. Ask the user to run: `npm run dev` after setup.*
 
 ```tsx
 import { ToastComponent } from '@syncfusion/ej2-react-notifications';
@@ -122,7 +126,7 @@ function App() {
 }
 ```
 
-## Quick Utility Toast (No Component Needed)
+### Quick Utility Toast (No Component Needed)
 
 ```tsx
 import { ToastUtility } from '@syncfusion/ej2-react-notifications';
@@ -134,32 +138,34 @@ ToastUtility.show('File saved successfully', 'Success', 3000);
 ToastUtility.show('Connection failed', 'Error', 5000);
 ```
 
-## Common Patterns
+### Common Patterns
 
-### Semantic type toasts
+#### Semantic type toasts
 Use `cssClass` with `e-toast-success`, `e-toast-info`, `e-toast-warning`, `e-toast-danger` for visual differentiation — see [references/templates-and-styling.md](references/toast-templates-and-styling.md).
 
-### Static/persistent toasts  
+#### Static/persistent toasts  
 Set `timeOut: 0` with `showCloseButton: true` for notifications users must explicitly dismiss — see [references/timeout-and-dismissal.md](references/toast-timeout-and-dismissal.md).
 
-### Action-required toasts  
+#### Action-required toasts  
 Use the `buttons` property to add Ignore/Confirm/Undo buttons — see [references/configuration.md](references/toast-configuration.md).
 
-### Prevent duplicates  
+#### Prevent duplicates  
 Use the `beforeOpen` event to cancel duplicate toasts already on screen — see [references/toast-services.md](references/toast-services.md).
 
-### Limit max visible toasts  
+#### Limit max visible toasts  
 Cap simultaneous toasts at N using `beforeOpen` and `element.childElementCount` — see [references/toast-services.md](references/toast-services.md).
 
 ## Message
 
 The Syncfusion `MessageComponent` displays contextual messages with visual severity indicators—icons and colors—to communicate importance and context to end users. It supports five severity levels, three visual variants, close-icon dismissal, custom templates, and full accessibility compliance.
 
+> 🛑 **Agentic use:** Do not execute multiple steps autonomously. Confirm with the user before each action (install, run, file creation).
+
 ### Navigation Guide
 
 #### Getting Started
 📄 **Read:** [references/message-getting-started.md](references/message-getting-started.md)
-- Installation of `@syncfusion/ej2-react-notifications`
+- Installation of `@syncfusion/ej2-react-notifications` 🛑 *STOP — Do not install packages autonomously. Ask the user to run: `npm install @syncfusion/ej2-react-notifications@33.x.x --save`. Verify with `npm audit`*
 - CSS imports and theme configuration
 - Rendering the first `MessageComponent`
 - Content via `content` prop or JSX children
@@ -216,8 +222,11 @@ The Syncfusion `MessageComponent` displays contextual messages with visual sever
 
 ### Quick Start
 
+> 🛑 *STOP — Do not start the dev server autonomously. Ask the user to run: `npm run dev` after setup.*
+
 ```bash
-npm install @syncfusion/ej2-react-notifications --save
+npm install @syncfusion/ej2-react-notifications@33.x.x --save
+npm audit
 ```
 
 ```css
@@ -296,13 +305,15 @@ The Syncfusion React `SkeletonComponent` renders animated placeholder shapes tha
 
 **Package:** `@syncfusion/ej2-react-notifications`
 
+> 🛑 **Agentic use:** Do not execute multiple steps autonomously. Confirm with the user before each action (install, run, file creation).
+
 ---
 
 ### Navigation Guide
 
 #### Getting Started
 📄 **Read:** [references/skeleton-getting-started.md](references/skeleton-getting-started.md)
-- Installing `@syncfusion/ej2-react-notifications`
+- Installing `@syncfusion/ej2-react-notifications` 🛑 *STOP — Do not install packages autonomously. Ask the user to run: `npm install @syncfusion/ej2-react-notifications@33.x.x --save`. Verify with `npm audit`*
 - CSS theme imports (tailwind3)
 - Minimal `SkeletonComponent` setup with `height` and `width`
 - Running the Vite/React app
@@ -346,8 +357,11 @@ The Syncfusion React `SkeletonComponent` renders animated placeholder shapes tha
 
 ### Quick Start
 
+> 🛑 *STOP — Do not start the dev server autonomously. Ask the user to run: `npm run dev` after setup.*
+
 ```bash
-npm install @syncfusion/ej2-react-notifications --save
+npm install @syncfusion/ej2-react-notifications@33.x.x --save
+npm audit
 ```
 
 ```css
@@ -466,15 +480,17 @@ export default ListSkeleton;
 
 ---
 
-## Syncfusion React Spinner
+## Spinner
 
 A skill for implementing the Syncfusion React Spinner — a load indicator that blocks user interaction with a target element while an operation is in progress.
 
-## Documentation
+> 🛑 **Agentic use:** Do not execute multiple steps autonomously. Confirm with the user before each action (install, run, file creation).
 
-### Getting Started
+### Documentation
+
+#### Getting Started
 📄 **Read:** [references/spinner-getting-started.md](references/spinner-getting-started.md)
-- Installation: `npm install @syncfusion/ej2-react-popups`
+- Installation: 🛑 *STOP — Do not install packages autonomously. Ask the user to run: `npm install @syncfusion/ej2-react-popups@33.x.x --save`. Verify with `npm audit`*
 - CSS theme imports (ej2-base + ej2-react-popups)
 - Basic functional and class component patterns
 - `createSpinner` → `showSpinner` workflow
@@ -482,7 +498,7 @@ A skill for implementing the Syncfusion React Spinner — a load indicator that 
 - Full-page overlay spinner
 - Troubleshooting missing styles and TypeScript errors
 
-### Spinner Features
+#### Spinner Features
 📄 **Read:** [references/spinner-features.md](references/spinner-features.md)
 - Global spinner configuration with `setSpinner`
 - All `SpinnerType` values (Material, Bootstrap5, Fluent2, etc.)
@@ -495,7 +511,7 @@ A skill for implementing the Syncfusion React Spinner — a load indicator that 
 - React state + spinner synchronization
 - Spinner inside cards and modals
 
-### API Reference
+#### API Reference
 📄 **Read:** [references/spinner-api.md](references/spinner-api.md)
 - `createSpinner(args: SpinnerArgs)` — full signature and params
 - `showSpinner(container: HTMLElement)` — signature
@@ -507,7 +523,7 @@ A skill for implementing the Syncfusion React Spinner — a load indicator that 
 - CSS import paths per theme
 - Common invalid API gotchas
 
-### Customization
+#### Customization
 📄 **Read:** [references/spinner-customization.md](references/spinner-customization.md)
 - `cssClass` for CSS hook customization
 - `width` for spinner icon sizing
@@ -519,7 +535,7 @@ A skill for implementing the Syncfusion React Spinner — a load indicator that 
 - Theme-specific type mapping
 - Responsive spinner patterns
 
-### Accessibility
+#### Accessibility
 📄 **Read:** [references/spinner-accessibility.md](references/spinner-accessibility.md)
 - `aria-busy` on the loading region
 - `aria-live` region for screen reader announcements
@@ -529,9 +545,11 @@ A skill for implementing the Syncfusion React Spinner — a load indicator that 
 - Complete accessible spinner pattern
 - WCAG 2.1 compliance checklist
 
-## Quick Start
+### Quick Start
 
-### Minimal Spinner (Functional Component)
+#### Minimal Spinner (Functional Component)
+
+> 🛑 *STOP — Do not start the dev server autonomously. Ask the user to run: `npm run dev` after setup.*
 
 ```tsx
 import { createSpinner, showSpinner } from '@syncfusion/ej2-react-popups';
@@ -555,7 +573,7 @@ function App() {
 export default App;
 ```
 
-### Spinner with Show/Hide Toggle
+#### Spinner with Show/Hide Toggle
 
 ```tsx
 import { createSpinner, showSpinner, hideSpinner } from '@syncfusion/ej2-react-popups';
@@ -591,7 +609,7 @@ function DataLoader() {
 }
 ```
 
-### Global Spinner Type
+#### Global Spinner Type
 
 ```tsx
 import { setSpinner } from '@syncfusion/ej2-react-popups';
@@ -600,9 +618,9 @@ import { setSpinner } from '@syncfusion/ej2-react-popups';
 setSpinner({ type: 'Bootstrap5' });
 ```
 
-## Common Patterns
+### Common Patterns
 
-### Pattern 1: Async Fetch with Cleanup
+#### Pattern 1: Async Fetch with Cleanup
 
 ```tsx
 const fetchWithSpinner = async (container: HTMLElement) => {
@@ -616,7 +634,7 @@ const fetchWithSpinner = async (container: HTMLElement) => {
 };
 ```
 
-### Pattern 2: React State Sync
+#### Pattern 2: React State Sync
 
 ```tsx
 useEffect(() => {
@@ -629,7 +647,7 @@ useEffect(() => {
 }, [isLoading]);
 ```
 
-### Pattern 3: Full-Page Loading
+#### Pattern 3: Full-Page Loading
 
 ```tsx
 useEffect(() => {
@@ -640,7 +658,7 @@ useEffect(() => {
 }, []);
 ```
 
-### Pattern 4: Spinner with Custom Type
+#### Pattern 4: Spinner with Custom Type
 
 ```tsx
 createSpinner({
@@ -652,7 +670,7 @@ createSpinner({
 });
 ```
 
-## Key API Quick Reference
+### Key API Quick Reference
 
 | Function | Signature | Purpose |
 |---|---|---|
@@ -665,7 +683,7 @@ createSpinner({
 
 **SpinnerType values:** `'Material'` | `'Material3'` | `'Fabric'` | `'Bootstrap'` | `'Bootstrap4'` | `'Bootstrap5'` | `'HighContrast'` | `'Tailwind'` | `'Tailwind3'` | `'Fluent'` | `'Fluent2'`
 
-## Critical Rules
+### Critical Rules
 
 - ❌ **No `SpinnerComponent` class** — `import { SpinnerComponent }` does NOT exist
 - ✅ **Only use:** `createSpinner`, `showSpinner`, `hideSpinner`, `setSpinner`
@@ -675,7 +693,7 @@ createSpinner({
 - ⚠️ **Put spinner logic in `useEffect`** — the DOM element must exist before calling createSpinner
 - ✅ **Always call `hideSpinner` in `finally`** — prevents stuck loading states
 
-## Troubleshooting
+### Troubleshooting
 
 | Issue | Solution |
 |---|---|
@@ -686,16 +704,124 @@ createSpinner({
 | Spinner outside bounds | Add `position: relative` to target element |
 | Wrong theme | Set `type` to match your app's CSS theme (e.g., `'Fluent2'` for Fluent 2 CSS) |
 
-## Related Components
+### Related Components
 
 - **Progress Bar** — For determinate progress with a percentage
 - **Skeleton** — For content placeholder/shimmer loading patterns
 - **Toast** — For non-blocking loading notifications
 - **Dialog** — For modal loading states that require user acknowledgment
 
-## Resources
+### Resources
 
 - **Official Docs:** [https://ej2.syncfusion.com/react/documentation/spinner/](https://ej2.syncfusion.com/react/documentation/spinner/)
 - **Getting Started:** [https://ej2.syncfusion.com/react/documentation/spinner/getting-started](https://ej2.syncfusion.com/react/documentation/spinner/getting-started)
 - **npm Package:** [@syncfusion/ej2-react-popups](https://www.npmjs.com/package/@syncfusion/ej2-react-popups)
-````
+
+## Badge
+
+The Syncfusion React Badge is a pure CSS component — no React component class to import. Badges are applied by adding CSS modifier classes to a `<span>` (or `<a>`) element nested inside the target UI element.
+
+**Package:** `@syncfusion/ej2-react-notifications`
+
+> 🛑 **Agentic use:** Do not execute multiple steps autonomously. Confirm with the user before each action (install, run, file creation).
+
+### Key Features
+
+- **8 color variants** — primary, secondary, success, danger, warning, info, light, dark
+- **Shape types** — circle, pill, link, notification, dot, overlap
+- **Positioning** — top (default) and bottom placement on parent elements
+- **Customization** — custom colors, sizes, and arbitrary positions via CSS
+- **ListView integration** — embed badges in list items with dynamic content
+
+### Navigation Guide
+
+#### Getting Started
+📄 **Read:** [references/getting-started.md](references/badge-getting-started.md)
+- Package installation: 🛑 *STOP — Do not install packages autonomously. Ask the user to run: `npm install @syncfusion/ej2-react-notifications@33.x.x --save`. Verify with `npm audit`*
+- Adding the first badge to a React component
+- Minimal working example
+- Running the application
+
+#### Badge Types and Shapes
+📄 **Read:** [references/types-and-shapes.md](references/badge-types-and-shapes.md)
+- 8 predefined color variants and their semantic purpose
+- Circle, pill, link, notification, dot, overlap shape types
+- Badge positioning (top vs bottom)
+- When to combine modifier classes (e.g., overlap + notification + circle)
+
+#### Customization
+📄 **Read:** [references/customization.md](references/badge-customization.md)
+- Custom color overrides with CSS classes
+- Adjusting badge size via `font-size`
+- Custom positioning (left-top, left-bottom) with CSS overrides
+- When to use custom CSS vs built-in modifier classes
+
+#### How-To Guides
+📄 **Read:** [references/how-to.md](references/badge-how-to.md)
+- Integrate badges into a ListView component
+- Update badge content dynamically (increment counts)
+- React pattern for badge state management using DOM updates
+
+### Quick Start
+
+**1. Install the package:**
+```bash
+npm install @syncfusion/ej2-react-notifications@33.x.x --save
+npm audit
+```
+
+**2. Add CSS to `src/App.css`:**
+```css
+@import "../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-notifications/styles/tailwind3.css";
+```
+
+**3. Add a badge in your component:**
+```tsx
+import * as React from 'react';
+import './App.css';
+
+function App() {
+  return (
+    <h1>Badge Component <span className="e-badge e-badge-primary">New</span></h1>
+  );
+}
+export default App;
+```
+
+### Common Patterns
+
+#### Notification badge on an icon
+```tsx
+// Parent must have position: relative
+<div className="badge-block">
+  <div className="skype svg_icons"></div>
+  <span className="e-badge e-badge-success e-badge-overlap e-badge-notification">99+</span>
+</div>
+```
+
+#### Dot status indicator (bottom position)
+```tsx
+<div className="badge-block">
+  <div className="firefox svg_icons"></div>
+  <span className="e-badge e-badge-success e-badge-overlap e-badge-dot e-badge-bottom"></span>
+</div>
+```
+
+#### Pill-shaped label
+```tsx
+<h1>Messages <span className="e-badge e-badge-primary e-badge-pill">New</span></h1>
+```
+
+### CSS Class Reference
+
+| Class | Purpose |
+|---|---|
+| `e-badge` | Required base class for all badges |
+| `e-badge-primary` / `e-badge-{color}` | Color variant |
+| `e-badge-pill` | Pill (rounded rectangle) shape |
+| `e-badge-circle` | Circle shape |
+| `e-badge-notification` | Notification counter badge |
+| `e-badge-dot` | Minimalist dot badge (no text) |
+| `e-badge-overlap` | Overlaps the parent element edge |
+| `e-badge-bottom` | Positions badge at bottom instead of top |

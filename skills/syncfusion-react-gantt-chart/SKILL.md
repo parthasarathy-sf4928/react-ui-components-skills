@@ -39,7 +39,7 @@ The Syncfusion React Gantt Chart (`GanttComponent`) is a powerful project manage
 - Basic `GanttComponent` with `taskFields` mapping
 - Module injection guide (all available services)
 - `gridLines` prop (`'Both'` / `'Horizontal'` / `'Vertical'` / `'None'`)
-- First render walkthrough with minimal example and common gotchas
+- First render walkthrough with minimal example, output summary, and common gotchas
 
 ### Data Binding
 📄 **Read:** [references/data-binding.md](references/data-binding.md)

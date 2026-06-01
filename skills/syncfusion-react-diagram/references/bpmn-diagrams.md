@@ -27,21 +27,24 @@ Inject the `BpmnDiagrams` module to enable BPMN shapes.
 ## Module Setup
 
 ```tsx
-import {
-  Diagram,
-  DiagramComponent,
-  Inject,
-  NodeModel,
-  ConnectorModel,
-  BpmnDiagrams
-} from '@syncfusion/ej2-react-diagrams';
+import { BpmnDiagrams, DiagramComponent, Inject, NodeModel } from '@syncfusion/ej2-react-diagrams';
 
-// Inject once, outside the component
-Diagram.Inject(BpmnDiagrams);
+const nodes: NodeModel[] = [
+  {
+    id: 'startEvent',
+    offsetX: 100, offsetY: 200,
+    width: 60, height: 60,
+    shape: {
+      type: 'Bpmn',
+      shape: 'Event',
+      event: { event: 'Start', trigger: 'None' }
+    }
+  },
+];
 
 export default function App() {
   return (
-    <DiagramComponent id="bpmn" width={'100%'} height={'600px'} nodes={nodes} connectors={connectors}>
+       <DiagramComponent id="bpmn" width={'100%'} height={'600px'} nodes={nodes}>
       <Inject services={[BpmnDiagrams]} />
     </DiagramComponent>
   );
@@ -397,7 +400,6 @@ export default function App() {
 ## Troubleshooting
 
 **BPMN shapes not rendering**
-- Confirm `Diagram.Inject(BpmnDiagrams)` is called outside the component
 - Confirm `<Inject services={[BpmnDiagrams]} />` is a child of `<DiagramComponent>`
 
 **Connector flow decorators look wrong**

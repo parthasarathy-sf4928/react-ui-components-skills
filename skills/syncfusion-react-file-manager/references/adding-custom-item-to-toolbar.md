@@ -20,10 +20,18 @@ import React from 'react';
 import { FileManagerComponent, Inject, NavigationPane, DetailsView, Toolbar } from '@syncfusion/ej2-react-filemanager';
 
 function BasicToolbarExample() {
+  const hostUrl = "url";
+  
   return (
     <FileManagerComponent
       height="500px"
       view="Details"
+      ajaxSettings={{
+        url: hostUrl + 'api/FileManager/FileOperations',
+        downloadUrl: hostUrl + 'api/FileManager/Download',
+        uploadUrl: hostUrl + 'api/FileManager/Upload',
+        getImageUrl: hostUrl + 'api/FileManager/GetImage'
+      }}
       toolbarSettings={{
         items: [
           'NewFolder', 'Upload', 'Delete', 'Cut', 'Copy', 'Paste',
@@ -54,8 +62,19 @@ import {
 } from '@syncfusion/ej2-react-filemanager';
 
 function AdvancedToolbarExample() {
+  const hostUrl = "url";
+  
   return (
-    <FileManagerComponent height="500px" view="Details">
+    <FileManagerComponent 
+      height="500px" 
+      view="Details"
+      ajaxSettings={{
+        url: hostUrl + 'api/FileManager/FileOperations',
+        downloadUrl: hostUrl + 'api/FileManager/Download',
+        uploadUrl: hostUrl + 'api/FileManager/Upload',
+        getImageUrl: hostUrl + 'api/FileManager/GetImage'
+      }}
+    >
       <ToolbarItemsDirective>
         <ToolbarItemDirective name="NewFolder" />
         <ToolbarItemDirective name="Upload" />
@@ -166,6 +185,7 @@ import { CheckBoxComponent } from '@syncfusion/ej2-react-buttons';
 function CheckboxToolbarExample() {
   const fileManagerRef = useRef(null);
   const checkboxRef = useRef(null);
+  const hostUrl = "url";
 
   const handleCheckboxChange = (args) => {
     if (args.checked) {
@@ -191,6 +211,12 @@ function CheckboxToolbarExample() {
       ref={fileManagerRef}
       height="500px"
       view="Details"
+      ajaxSettings={{
+        url: hostUrl + 'api/FileManager/FileOperations',
+        downloadUrl: hostUrl + 'api/FileManager/Download',
+        uploadUrl: hostUrl + 'api/FileManager/Upload',
+        getImageUrl: hostUrl + 'api/FileManager/GetImage'
+      }}
     >
       <ToolbarItemsDirective>
         <ToolbarItemDirective name="NewFolder" />
@@ -221,6 +247,7 @@ import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
 function DropdownToolbarExample() {
   const fileManagerRef = useRef(null);
+  const hostUrl = "url";
   const fileTypesData = [
     { text: 'All Files', value: '*' },
     { text: 'Images', value: '*.jpg,*.png,*.gif' },
@@ -248,6 +275,12 @@ function DropdownToolbarExample() {
       ref={fileManagerRef}
       height="500px"
       view="Details"
+      ajaxSettings={{
+        url: hostUrl + 'api/FileManager/FileOperations',
+        downloadUrl: hostUrl + 'api/FileManager/Download',
+        uploadUrl: hostUrl + 'api/FileManager/Upload',
+        getImageUrl: hostUrl + 'api/FileManager/GetImage'
+      }}
     >
       <ToolbarItemsDirective>
         <ToolbarItemDirective name="NewFolder" />
@@ -310,6 +343,7 @@ import { FileManagerComponent, Inject } from '@syncfusion/ej2-react-filemanager'
 
 function EnableDisableToolbarExample() {
   const fileManagerRef = useRef(null);
+  const hostUrl = "url";
 
   const handleEnableDelete = () => {
     fileManagerRef.current?.enableToolbarItems(['delete']);
@@ -336,6 +370,12 @@ function EnableDisableToolbarExample() {
         ref={fileManagerRef}
         height="500px"
         view="Details"
+        ajaxSettings={{
+          url: hostUrl + 'api/FileManager/FileOperations',
+          downloadUrl: hostUrl + 'api/FileManager/Download',
+          uploadUrl: hostUrl + 'api/FileManager/Upload',
+          getImageUrl: hostUrl + 'api/FileManager/GetImage'
+        }}
         toolbarSettings={{
           items: ['NewFolder', 'Upload', 'Delete', 'Refresh', 'Details']
         }}

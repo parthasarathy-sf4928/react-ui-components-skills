@@ -36,7 +36,6 @@ A group is a node with a `children` array of child node IDs. Child nodes must be
 ### Declarative Group Definition
 
 ```tsx
-import * as React from 'react';
 import { useRef } from 'react';
 import { DiagramComponent, NodeModel } from '@syncfusion/ej2-react-diagrams';
 
@@ -82,6 +81,9 @@ export default function App() {
 Connectors can also be part of a group, so they move with the group:
 
 ```tsx
+import { useRef } from 'react';
+import { DiagramComponent, ConnectorModel, NodeModel } from '@syncfusion/ej2-react-diagrams';
+
 const connectors: ConnectorModel[] = [
   { id: 'c1', type: 'Orthogonal', sourceID: 'node1', targetID: 'node2' },
 ];
@@ -96,7 +98,18 @@ const nodes: NodeModel[] = [
   },
 ];
 
-<DiagramComponent nodes={nodes} connectors={connectors} ... />
+export default function App() {
+  const diagramRef = useRef<DiagramComponent>(null);
+  return (
+    <DiagramComponent
+      id="container"
+      ref={diagramRef}
+      width="100%" height="500px"
+      nodes={nodes}
+      connectors={connectors}
+    />
+  );
+}
 ```
 
 ---

@@ -325,7 +325,7 @@ After dropping a node in a hierarchical layout, create a connector to attach it:
 
 ```tsx
 import { randomId } from '@syncfusion/ej2-react-diagrams';
-
+<DiagramComponent
 drop={(args: IDropEventArgs) => {
   setTimeout(() => {
     const dropped = args.element as NodeModel;
@@ -341,6 +341,8 @@ drop={(args: IDropEventArgs) => {
     }
   }, 100);
 }}
+...
+/>
 ```
 
 ---

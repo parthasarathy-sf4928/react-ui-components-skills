@@ -1,6 +1,6 @@
 ---
 name: syncfusion-react-inputs
-description: Comprehensive guide for implementing Syncfusion React input components including Uploader, NumericTextBox, TextBox, TextArea, CheckBox, OTP Input and Signature and RangeSlider. Use this when building file upload UIs with async/chunk uploads, drag-and-drop functionality, numeric inputs with validation and formatting, text inputs with floating labels, custom adornments, form integration, accessibility compliance, and styling in React applications.
+description: Comprehensive guide for implementing Syncfusion React input components including Uploader, NumericTextBox, TextBox, TextArea, CheckBox, OTP Input, Signature, RangeSlider, ColorPicker, MaskedTextBox, and Rating. Use this when building file upload UIs with async/chunk uploads, drag-and-drop functionality, numeric inputs with validation and formatting, text inputs with floating labels, custom adornments, form integration, accessibility compliance, and styling in React applications.
 metadata:
   author: "Syncfusion Inc"
   version: "33.1.44"
@@ -1520,15 +1520,15 @@ const [value, setValue] = React.useState('');
 | `cssClass` | Custom styling | 'e-outline', 'e-small', 'e-filled' |
 | `showClearButton` | Display clear button | boolean |
 
-## Syncfusion React Slider (RangeSlider)
+## Slider (RangeSlider)
 
 A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComponent` in React applications. Supports single-value (`Default`), min-range fill (`MinRange`), and dual-handle range selection (`Range`) with tooltips, ticks, limits, color ranges, custom values, formatting, accessibility, events, and more.
 
 **Package:** `@syncfusion/ej2-react-inputs`
 
-## Navigation Guide
+### Navigation Guide
 
-### Getting Started
+#### Getting Started
 📄 **Read:** [references/getting-started.md](references/range-slider-getting-started.md)
 - Installation and package setup
 - Basic implementation of three slider types
@@ -1536,7 +1536,7 @@ A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComp
 - Minimal working example
 - Initial configuration
 
-### Types and Orientation
+#### Types and Orientation
 📄 **Read:** [references/types-and-orientation.md](references/range-slider-types-and-orientation.md)
 - Three slider types: Default, MinRange, Range
 - Understanding shadow/fill behavior
@@ -1544,7 +1544,7 @@ A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComp
 - Type selection guide
 - Code examples for each type
 
-### Tooltips and Ticks
+#### Tooltips and Ticks
 📄 **Read:** [references/tooltips-and-ticks.md](references/range-slider-tooltips-and-ticks.md)
 - Tooltip configuration and placement
 - Tooltip visibility modes (Always, Focus, Click)
@@ -1553,7 +1553,7 @@ A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComp
 - Small tick visibility
 - Combined tooltip + ticks examples
 
-### Formatting and Limits
+#### Formatting and Limits
 📄 **Read:** [references/formatting-and-limits.md](references/range-slider-formatting-and-limits.md)
 - Value formatting (currency, percentages, custom formats)
 - Using the format API
@@ -1562,7 +1562,7 @@ A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComp
 - Min/max bounds per handle
 - Edge cases and constraint handling
 
-### Styling and Customization
+#### Styling and Customization
 📄 **Read:** [references/styling.md](references/range-slider-styling.md)
 - CSS selectors for track, handle, limits, ticks, buttons
 - Customizing track color and height
@@ -1571,7 +1571,7 @@ A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComp
 - CSS variable customization
 - Advanced styling patterns
 
-### Accessibility
+#### Accessibility
 📄 **Read:** [references/accessibility.md](references/range-slider-accessibility.md)
 - WCAG 2.2 and Section 508 compliance
 - WAI-ARIA attributes and roles (`role="slider"`, `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, `aria-orientation`)
@@ -1580,7 +1580,7 @@ A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComp
 - Focus management and color contrast requirements
 - Mobile touch accessibility
 
-### Color Range
+#### Color Range
 📄 **Read:** [references/color-range.md](references/range-slider-color-range.md)
 - `colorRange` property and `ColorRangeDataModel` interface
 - Three-zone and multi-zone patterns (red/amber/green)
@@ -1589,7 +1589,7 @@ A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComp
 - Real-world: battery, risk, performance, score patterns
 - Combining `colorRange` with `limits`, `ticks`, and `tooltip`
 
-### Events and Methods
+#### Events and Methods
 📄 **Read:** [references/events-and-methods.md](references/range-slider-events-and-methods.md)
 - `change` event — continuous value updates while dragging
 - `changed` event — final committed value on drag release
@@ -1602,7 +1602,7 @@ A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComp
 - React `ref` patterns for programmatic control
 - Common patterns: API sync, conditional logic, live preview
 
-### API Reference
+#### API Reference
 📄 **Read:** [references/api-reference.md](references/range-slider-api-reference.md)
 - All official `SliderComponent` properties: `value`, `type`, `min`, `max`, `step`, `orientation`, `ticks`, `tooltip`, `limits`, `colorRange`, `customValues`, `showButtons`, `enableAnimation`, `enabled`, `readonly`, `cssClass`, `width`, `enableRtl`, `enablePersistence`, `enableHtmlSanitizer`, `locale`
 - Official methods: `reposition()`, `destroy()`
@@ -1618,9 +1618,9 @@ A comprehensive guide for implementing the Syncfusion Essential JS 2 `SliderComp
 - Enum: `SliderType` (`'Default'` | `'MinRange'` | `'Range'`)
 - Enum: `SliderOrientation` (`'Horizontal'` | `'Vertical'`)
 
-## Quick Start
+### Quick Start
 
-### Basic Single Value Slider
+#### Basic Single Value Slider
 
 ```tsx
 import React from 'react';
@@ -1642,7 +1642,7 @@ function App() {
 export default App;
 ```
 
-### Range Slider (Two Handles)
+#### Range Slider (Two Handles)
 
 ```tsx
 import React from 'react';
@@ -1668,7 +1668,7 @@ function App() {
 export default App;
 ```
 
-### Price Range Selector
+#### Price Range Selector
 
 ```tsx
 import React from 'react';
@@ -1703,9 +1703,9 @@ function PriceRangeSelector() {
 export default PriceRangeSelector;
 ```
 
-## Common Patterns
+### Common Patterns
 
-### Pattern 1: Single Value with Ticks
+#### Pattern 1: Single Value with Ticks
 Use Default type for simple numeric selection with visual scale.
 
 ```tsx
@@ -1724,7 +1724,7 @@ Use Default type for simple numeric selection with visual scale.
 />
 ```
 
-### Pattern 2: Range with Fixed Limits
+#### Pattern 2: Range with Fixed Limits
 Use Range type with limits to restrict handle movement to specific areas.
 
 ```tsx
@@ -1743,7 +1743,7 @@ Use Range type with limits to restrict handle movement to specific areas.
 />
 ```
 
-### Pattern 3: Formatted Values (Currency)
+#### Pattern 3: Formatted Values (Currency)
 Display values as currency using format API.
 
 ```tsx
@@ -1766,7 +1766,7 @@ Display values as currency using format API.
 />
 ```
 
-### Pattern 4: Vertical Orientation
+#### Pattern 4: Vertical Orientation
 Display slider vertically for space-constrained layouts.
 
 ```tsx
@@ -1780,7 +1780,7 @@ Display slider vertically for space-constrained layouts.
 </div>
 ```
 
-### Pattern 5: With Increment/Decrement Buttons
+#### Pattern 5: With Increment/Decrement Buttons
 Add buttons to manually adjust slider values.
 
 ```tsx
@@ -1793,7 +1793,7 @@ Add buttons to manually adjust slider values.
 />
 ```
 
-### Pattern 6: Color Range (Zones)
+#### Pattern 6: Color Range (Zones)
 Paint distinct color sections on the slider track using `colorRange`.
 
 ```tsx
@@ -1814,7 +1814,7 @@ const colorRange: ColorRangeDataModel[] = [
 />
 ```
 
-### Pattern 7: Custom Value Scale
+#### Pattern 7: Custom Value Scale
 Use non-numeric labels as slider values with `customValues`.
 
 ```tsx
@@ -1826,7 +1826,7 @@ Use non-numeric labels as slider values with `customValues`.
 />
 ```
 
-### Pattern 8: Read-Only Display
+#### Pattern 8: Read-Only Display
 Show a locked slider for informational display.
 
 ```tsx
@@ -1842,7 +1842,7 @@ Show a locked slider for informational display.
 />
 ```
 
-## Key Properties
+### Key Properties
 
 | Property | Type | Default | Purpose |
 |----------|------|---------|---------|
@@ -1864,7 +1864,7 @@ Show a locked slider for informational display.
 | `width` | `number \| string` | `null` | Slider element width |
 | `cssClass` | `string` | `''` | Custom CSS classes on root element |
 
-## Type Comparison
+### Type Comparison
 
 | Type | Handles | Fill Behavior | Use Case |
 |------|---------|---------------|----------|
@@ -1872,29 +1872,29 @@ Show a locked slider for informational display.
 | **MinRange** | 1 | Fill from min | Visual progress/level indicator |
 | **Range** | 2 | Fill between handles | Min/max range selection |
 
-## Common Use Cases
+### Common Use Cases
 
-### Budget Range Selector
+#### Budget Range Selector
 Select min and max budget with step increments and currency formatting.
 → Use `type="Range"`, `step={50}`, format `'C0'`, tooltip enabled
 
-### Time Range Picker
+#### Time Range Picker
 Select time window (hours, minutes, days).
 → Use `type="Range"`, custom formatting via `renderingTicks` event
 
-### Volume/Brightness Control
+#### Volume/Brightness Control
 Single handle adjustment with immediate feedback.
 → Use `type="Default"`, no ticks, always-visible tooltip
 
-### Score/Rating Range
+#### Score/Rating Range
 MinRange mode with shadow showing current level.
 → Use `type="MinRange"`, `min={0}`, `max={10}`, step-based
 
-### Product Filter
+#### Product Filter
 Multiple product categories with price ranges.
 → Use `type="Range"`, limits for each category, event handlers
 
-## Events
+### Events
 
 | Event | Trigger | Usage |
 |-------|---------|-------|
@@ -1907,7 +1907,7 @@ Multiple product categories with price ranges.
 
 > **⚠️ Note:** The official event for continuous updates while dragging is `change`, not `changing`. The event fired after drag completes is `changed`. Do NOT use `onChange` prop (that is a React native input prop). Use `change` and `changed` directly.
 
-## Troubleshooting Quick Links
+### Troubleshooting Quick Links
 
 **Component not displaying?** → Check CSS imports and theme in [getting-started.md](references/range-slider-getting-started.md)
 
@@ -1923,7 +1923,7 @@ Multiple product categories with price ranges.
 
 **Color zones not showing?** → Check `colorRange` array has valid `start`/`end`/`color` properties
 
-## Next Steps
+### Next Steps
 
 1. Choose your slider type based on use case (`Default`, `MinRange`, or `Range`)
 2. Read [getting-started.md](references/range-slider-getting-started.md) for installation
@@ -1934,3 +1934,531 @@ Multiple product categories with price ranges.
 7. Verify all API usage against [api-reference.md](references/range-slider-api-reference.md)
 
 > **⚠️ Critical:** Only use APIs explicitly listed in [references/api-reference.md](references/range-slider-api-reference.md). Do **not** reference `onChange` (use `change`/`changed`), `toggle()`, `open()`, `close()`, or any undocumented methods.
+
+## ColorPicker
+
+The Syncfusion React ColorPicker lets users pick colors via a visual picker (HSV + opacity) or a palette of swatches. It renders as a SplitButton by default (opens a popup) or inline, and supports RGB, HSV, and Hex color formats.
+
+**Package:** `@syncfusion/ej2-react-inputs`  
+**Component:** `<ColorPickerComponent>`
+
+### Navigation Guide
+
+#### Getting Started
+📄 **Read:** [references/getting-started.md](references/colorpicker-getting-started.md)
+- Installation with Vite or Create React App
+- npm package setup
+- CSS theme imports
+- Minimal working example
+- Running the application
+
+#### Modes and Color Value
+📄 **Read:** [references/modes-and-value.md](references/colorpicker-modes-and-value.md)
+- Inline rendering vs popup (SplitButton)
+- Picker mode vs Palette mode
+- Setting initial color value (hex codes)
+- Opacity support
+- Rendering palette alone (locking mode)
+
+#### Palette Features
+📄 **Read:** [references/palette-features.md](references/colorpicker-palette-features.md)
+- Custom color palettes (`presetColors`)
+- Custom palette tile rendering (`beforeTileRender`)
+- No-color / clear color support (`noColor`)
+- Custom no-color option
+- Recent colors display (`showRecentColors`)
+- Palette column count (`columns`)
+
+#### UI Customization
+📄 **Read:** [references/ui-customization.md](references/colorpicker-ui-customization.md)
+- Hide the input value area
+- Custom picker handle
+- Custom primary button with icon
+- Display hex code in input element
+- Hide control buttons (Apply/Cancel)
+- CSS class overrides and Theme Studio
+- Excel-like custom UI with SplitButton and Dialog
+
+#### Integration and Advanced
+📄 **Read:** [references/integration-and-advanced.md](references/colorpicker-integration-and-advanced.md)
+- Embedding ColorPicker in a DropDownButton
+- Popup toggle control
+- State persistence across page reloads
+- Mode switcher visibility and events
+- Disabled state
+
+#### Localization and RTL
+📄 **Read:** [references/localization-and-rtl.md](references/colorpicker-localization-and-rtl.md)
+- Localizing Apply / Cancel / ModeSwitcher labels
+- Loading translation objects with `L10n`
+- Right-to-left rendering (`enableRtl`)
+
+#### Accessibility
+📄 **Read:** [references/accessibility.md](references/colorpicker-accessibility.md)
+- WCAG 2.2 / Section 508 compliance
+- WAI-ARIA attributes
+- Keyboard navigation shortcuts
+- Accessibility validation
+
+#### API Reference
+📄 **Read:** [references/api.md](references/colorpicker-api.md)
+- All properties with types and defaults
+- All methods with signatures
+- All events with payload types
+
+---
+
+### Quick Start
+
+```bash
+npm install @syncfusion/ej2-react-inputs --save
+```
+
+```css
+/* src/App.css */
+@import "../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-react-inputs/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/tailwind3.css";
+```
+
+```tsx
+import { ColorPickerComponent } from '@syncfusion/ej2-react-inputs';
+import * as React from 'react';
+import './App.css';
+
+function App() {
+  return (
+    <div id="container">
+      <div className="wrap">
+        <h4>Choose Color</h4>
+        <ColorPickerComponent id="color-picker" />
+      </div>
+    </div>
+  );
+}
+export default App;
+```
+
+---
+
+### Common Patterns
+
+#### Inline picker (no popup)
+```tsx
+<ColorPickerComponent inline={true} showButtons={false} />
+```
+
+#### Palette-only mode
+```tsx
+<ColorPickerComponent mode="Palette" modeSwitcher={false} showButtons={false} />
+```
+
+#### Set initial color + handle changes
+```tsx
+import { ColorPickerEventArgs } from '@syncfusion/ej2-react-inputs';
+
+function App() {
+  function onChange(args: ColorPickerEventArgs): void {
+    console.log(args.currentValue.hex);  // e.g. "#ff5733"
+    console.log(args.currentValue.rgba); // e.g. "rgba(255,87,51,1)"
+  }
+  return <ColorPickerComponent value="#ff5733" change={onChange} />;
+}
+```
+
+#### Custom palette with preset colors
+```tsx
+const presets: { [key: string]: string[] } = {
+  'brand': ['#0078d4', '#106ebe', '#005a9e', '#004578'],
+  'accents': ['#e81123', '#ff8c00', '#00b294', '#68217a']
+};
+
+<ColorPickerComponent
+  mode="Palette"
+  presetColors={presets}
+  columns={4}
+  modeSwitcher={false}
+  inline={true}
+  showButtons={false}
+/>
+```
+
+#### Disable opacity slider
+```tsx
+<ColorPickerComponent enableOpacity={false} />
+```
+
+#### No-color support (clear selection)
+```tsx
+<ColorPickerComponent
+  mode="Palette"
+  noColor={true}
+  modeSwitcher={false}
+  showButtons={false}
+/>
+```
+
+#### Localization (German)
+```tsx
+import { L10n } from '@syncfusion/ej2-base';
+
+L10n.load({
+  'de-DE': {
+    'colorpicker': { Apply: 'Anwenden', Cancel: 'Abbrechen', ModeSwitcher: 'Modus wechseln' }
+  }
+});
+
+<ColorPickerComponent locale="de-DE" />
+```
+
+---
+
+### Key Props
+
+| Prop | Type | Default | Purpose |
+|------|------|---------|---------|
+| `value` | `string` | `'#008000ff'` | Initial color (3/4/6/8 digit hex) |
+| `mode` | `'Picker' \| 'Palette'` | `'Picker'` | Which panel to show initially |
+| `inline` | `boolean` | `false` | Render component directly (no popup) |
+| `showButtons` | `boolean` | `true` | Show Apply/Cancel buttons |
+| `modeSwitcher` | `boolean` | `true` | Show mode switcher button |
+| `noColor` | `boolean` | `false` | Add a "no color" tile to palette |
+| `presetColors` | `object` | `null` | Custom color groups for palette |
+| `columns` | `number` | `10` | Palette columns count |
+| `enableOpacity` | `boolean` | `true` | Show opacity slider |
+| `showRecentColors` | `boolean` | `false` | Show recent color tiles (palette only) |
+| `disabled` | `boolean` | `false` | Disable the component |
+| `cssClass` | `string` | `''` | Custom CSS class on root element |
+| `enableRtl` | `boolean` | `false` | Right-to-left rendering |
+| `locale` | `string` | `''` | Locale string for localization |
+
+## MaskedTextBox
+
+The Syncfusion React MaskedTextBox component enforces a specific input format by applying a mask pattern, guiding users to enter data in the correct structure. It is ideal for phone numbers, postal codes, dates, IP addresses, product keys, and any scenario where input must follow a predefined format.
+
+### Navigation Guide
+
+#### Getting Started
+📄 **Read:** [references/getting-started.md](references/maskedtextbox-getting-started.md)
+- Installation via npm (`@syncfusion/ej2-react-inputs`)
+- Vite / Create-React-App setup
+- CSS imports for theming
+- Rendering a basic MaskedTextBox
+- Setting the `mask` property for format enforcement
+
+#### Mask Configuration
+📄 **Read:** [references/mask-configuration.md](references/maskedtextbox-mask-configuration.md)
+- Standard mask element tokens (0, 9, #, L, ?, &, C, A, a, <, >, |, \)
+- Custom characters via `customCharacters` property
+- Regular expression masks for flexible patterns (e.g., IP addresses)
+- Prompt character customization via `promptChar`
+
+#### Adornments (Prepend / Append Elements)
+📄 **Read:** [references/adornments.md](references/maskedtextbox-adornments.md)
+- Adding icons or buttons before/after the input with `prependTemplate` and `appendTemplate`
+- Entry guidance, quick actions, and context labels
+- Class and functional component examples
+
+#### React Hooks Integration
+📄 **Read:** [references/react-hooks.md](references/maskedtextbox-react-hooks.md)
+- Controlled component with `useState`
+- Auto-focus on mount using `useEffect` + `useRef` + `focusIn()`
+- Multiple masked inputs with `useReducer`
+- Handling the `change` event in functional components
+
+#### Style, Appearance & Customization
+📄 **Read:** [references/style-and-customization.md](references/maskedtextbox-style-and-customization.md)
+- Custom styling with `cssClass`
+- CSS overrides for wrapper, hover, and focus states
+- Setting cursor position on focus using the `focus` event (`selectionStart`, `selectionEnd`)
+- Displaying numeric keypad on mobile with `type="tel"`
+- `floatLabelType` options (Never, Always, Auto)
+
+#### Form Validation
+📄 **Read:** [references/form-validation.md](references/maskedtextbox-form-validation.md)
+- Integrating with Syncfusion `FormValidator`
+- Defining custom validation rules using `ej2_instances`
+- Custom error placement with `customPlacement`
+- Checking for incomplete masked values using `promptChar`
+
+#### API Reference
+📄 **Read:** [references/api.md](references/maskedtextbox-api.md)
+- All properties: `mask`, `value`, `placeholder`, `floatLabelType`, `promptChar`, `customCharacters`, `cssClass`, `enabled`, `readonly`, `showClearButton`, `enableRtl`, `enablePersistence`, `htmlAttributes`, `locale`, `width`, `prependTemplate`, `appendTemplate`
+- Methods: `focusIn()`, `focusOut()`, `getMaskedValue()`, `destroy()`, `getPersistData()`
+- Events: `change`, `focus`, `blur`, `created`, `destroyed`
+
+### Quick Start
+
+```tsx
+import * as React from 'react';
+import { MaskedTextBoxComponent } from '@syncfusion/ej2-react-inputs';
+import '../node_modules/@syncfusion/ej2-base/styles/tailwind3.css';
+import '../node_modules/@syncfusion/ej2-react-inputs/styles/tailwind3.css';
+
+export default function App() {
+  return (
+    <MaskedTextBoxComponent
+      mask="000-000-0000"
+      placeholder="Enter phone number"
+      floatLabelType="Auto"
+    />
+  );
+}
+```
+
+### Common Patterns
+
+#### Phone Number Input
+```tsx
+<MaskedTextBoxComponent mask="000-000-0000" placeholder="Phone" floatLabelType="Always" />
+```
+
+#### IP Address with Regex Mask
+```tsx
+<MaskedTextBoxComponent
+  mask="[0-2][0-9][0-9].[0-2][0-9][0-9].[0-2][0-9][0-9].[0-2][0-9][0-9]"
+  placeholder="IP Address (ex: 212.212.111.222)"
+  floatLabelType="Always"
+/>
+```
+
+#### Custom AM/PM Time Input
+```tsx
+const chars = { P: 'P,A,p,a', M: 'M,m' };
+<MaskedTextBoxComponent
+  mask="00:00 >PM"
+  customCharacters={chars}
+  placeholder="Time (ex: 10:00 PM)"
+  floatLabelType="Always"
+/>
+```
+
+#### Read Masked Value Programmatically
+```tsx
+const maskRef = React.useRef(null);
+// Later:
+const maskedVal = maskRef.current.getMaskedValue(); // e.g., "123-456-7890"
+const rawVal = maskRef.current.value;               // e.g., "1234567890"
+```
+
+#### Controlled Input with Change Event
+```tsx
+const [phone, setPhone] = React.useState('');
+<MaskedTextBoxComponent
+  mask="000-000-0000"
+  value={phone}
+  change={(e) => setPhone(e.value)}
+  placeholder="Phone"
+  floatLabelType="Auto"
+/>
+```
+
+## Rating
+
+The Syncfusion React `RatingComponent` lets users select a rating value from a set of visual symbols (stars by default). It supports **precision modes**, **custom templates**, **tooltips**, **labels**, **reset**, **read-only/disabled** states, full **accessibility** compliance, and rich CSS customization.
+
+**Package:** `@syncfusion/ej2-react-inputs`
+
+---
+
+### Navigation Guide
+
+#### Getting Started
+📄 **Read:** [references/getting-started.md](references/rating-getting-started.md)
+- Installing `@syncfusion/ej2-react-inputs`
+- CSS theme imports for Tailwind3
+- Minimal `RatingComponent` setup
+- Setting the initial `value` property
+- Running the Vite/React app
+
+#### Selection and Reset
+📄 **Read:** [references/selection.md](references/rating-selection.md)
+- Setting a rating value with `value`
+- Minimum rating value with `min`
+- Single-selection mode with `enableSingleSelection`
+- Show/hide reset button with `allowReset`
+- Programmatic `reset()` method
+
+#### Precision Modes
+📄 **Read:** [references/precision-modes.md](references/rating-precision-modes.md)
+- `PrecisionType.Full` — whole number increments
+- `PrecisionType.Half` — 0.5 increments
+- `PrecisionType.Quarter` — 0.25 increments
+- `PrecisionType.Exact` — 0.1 increments
+- Combining precision with initial value
+
+#### Appearance and Customization
+📄 **Read:** [references/appearance.md](references/rating-appearance.md)
+- Controlling item count with `itemsCount`
+- Disabling the component with `disabled`
+- Hiding/showing the component with `visible`
+- Read-only mode with `readOnly`
+- CSS customization with `cssClass` (border color, fill color, item spacing, icon)
+- Changing rating icon via CSS
+
+#### Labels
+📄 **Read:** [references/labels.md](references/rating-labels.md)
+- Showing the current value label with `showLabel`
+- `labelPosition` options: Top, Bottom, Left, Right
+- Custom label content with `labelTemplate`
+
+#### Tooltip
+📄 **Read:** [references/tooltip.md](references/rating-tooltip.md)
+- Enabling tooltips with `showTooltip`
+- Custom tooltip content with `tooltipTemplate`
+- Tooltip appearance via `cssClass`
+
+#### Templates
+📄 **Read:** [references/templates.md](references/rating-templates.md)
+- `emptyTemplate` for unrated items
+- `fullTemplate` for rated items
+- Emoji rating symbols
+- SVG icon rating symbols
+- PNG image rating symbols
+- Precision support in templates via `--rating-value`
+
+#### Events
+📄 **Read:** [references/events.md](references/rating-events.md)
+- `beforeItemRender` — customize items before render
+- `created` — after component initialization
+- `onItemHover` — track hovered items
+- `valueChanged` — react to user rating changes
+
+#### Accessibility
+📄 **Read:** [references/accessibility.md](references/rating-accessibility.md)
+- WCAG 2.2 / Section 508 / ADA compliance
+- WAI-ARIA attributes (`role=slider`, `aria-valuemin/max/now`)
+- Keyboard navigation shortcuts
+- RTL support with `enableRtl`
+- Screen reader support
+
+#### API Reference
+📄 **Read:** [references/api.md](references/rating-api.md)
+- All properties, methods, and events with types and defaults
+- `RatingItemEventArgs`, `RatingHoverEventArgs`, `RatingChangedEventArgs`
+- `LabelPosition` and `PrecisionType` enums
+
+---
+
+### Quick Start
+
+```bash
+npm install @syncfusion/ej2-react-inputs --save
+```
+
+```css
+/* src/App.css */
+@import "../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-react-inputs/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/tailwind3.css";
+```
+
+```tsx
+import { RatingComponent } from '@syncfusion/ej2-react-inputs';
+import * as React from 'react';
+import './App.css';
+
+function App() {
+  return (
+    <RatingComponent id="rating" value={3} />
+  );
+}
+export default App;
+```
+
+---
+
+### Common Patterns
+
+#### Rating with value change handler
+```tsx
+import { RatingComponent, RatingChangedEventArgs } from '@syncfusion/ej2-react-inputs';
+import * as React from 'react';
+
+function App() {
+  const [rating, setRating] = React.useState(3);
+
+  const handleValueChanged = (args: RatingChangedEventArgs) => {
+    setRating(args.value);
+  };
+
+  return (
+    <RatingComponent
+      id="rating"
+      value={rating}
+      valueChanged={handleValueChanged}
+    />
+  );
+}
+export default App;
+```
+
+#### Half-precision rating with label
+```tsx
+import { RatingComponent, PrecisionType } from '@syncfusion/ej2-react-inputs';
+import * as React from 'react';
+
+function App() {
+  return (
+    <RatingComponent
+      id="rating"
+      value={3.5}
+      precision={PrecisionType.Half}
+      showLabel={true}
+    />
+  );
+}
+export default App;
+```
+
+#### Read-only rating (display only)
+```tsx
+import { RatingComponent } from '@syncfusion/ej2-react-inputs';
+import * as React from 'react';
+
+function App() {
+  return (
+    <RatingComponent id="rating" value={4} readOnly={true} showTooltip={false} />
+  );
+}
+export default App;
+```
+
+#### Rating with reset button
+```tsx
+import { RatingComponent } from '@syncfusion/ej2-react-inputs';
+import * as React from 'react';
+
+function App() {
+  return (
+    <RatingComponent id="rating" value={3} allowReset={true} />
+  );
+}
+export default App;
+```
+
+---
+
+### Key Props at a Glance
+
+| Prop | Type | Default | Purpose |
+|------|------|---------|---------|
+| `value` | `number` | `0.0` | Current rating value |
+| `itemsCount` | `number` | `5` | Number of rating items |
+| `min` | `number` | `0.0` | Minimum selectable value |
+| `precision` | `PrecisionType \| string` | `Full` | Rating granularity |
+| `allowReset` | `boolean` | `false` | Show reset button |
+| `readOnly` | `boolean` | `false` | Prevent user interaction |
+| `disabled` | `boolean` | `false` | Disable the component |
+| `visible` | `boolean` | `true` | Show/hide the component |
+| `showLabel` | `boolean` | `false` | Show current value label |
+| `labelPosition` | `LabelPosition \| string` | `Right` | Label placement |
+| `showTooltip` | `boolean` | `true` | Show hover tooltips |
+| `enableSingleSelection` | `boolean` | `false` | Only one item selected |
+| `enableAnimation` | `boolean` | `true` | Hover animation |
+| `enableRtl` | `boolean` | `false` | Right-to-left mode |
+| `cssClass` | `string` | `''` | Custom CSS class |
+
+---

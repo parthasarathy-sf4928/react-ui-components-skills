@@ -9,40 +9,41 @@
 - [taskFields Mapping](#taskfields-mapping)
 - [Module Injection](#module-injection)
 - [Common Setup Gotchas](#common-setup-gotchas)
+- [Grid Lines](#grid-lines)
 
 ---
 
 ## Dependencies
 
-The Gantt component requires the following npm packages:
+Install the Gantt package and its peer dependencies:
 
 ```bash
 npm install @syncfusion/ej2-react-gantt --save
 ```
 
-This installs the main package along with its peer dependencies:
-- `@syncfusion/ej2-grids`
-- `@syncfusion/ej2-gantt`
-- `@syncfusion/ej2-layouts`
-- `@syncfusion/ej2-treegrid`
+The component relies on packages such as `@syncfusion/ej2-gantt`, `@syncfusion/ej2-grids`, `@syncfusion/ej2-layouts`, and `@syncfusion/ej2-treegrid`.
 
 ---
 
 ## Project Setup
 
-**Using Vite (recommended):**
+Use Vite for a quick React setup:
 
 ```bash
 # JavaScript
-npm create vite@latest my-app -- --template react
-cd my-app
+npm create vite@latest my-gantt-app -- --template react
+cd my-gantt-app
 npm install
-npm run dev
 
 # TypeScript
-npm create vite@latest my-app -- --template react-ts
-cd my-app
+npm create vite@latest my-gantt-app -- --template react-ts
+cd my-gantt-app
 npm install
+```
+
+Run the app with:
+
+```bash
 npm run dev
 ```
 
@@ -58,7 +59,7 @@ npm install @syncfusion/ej2-react-gantt --save
 
 ## Add CSS Imports
 
-Add all required CSS imports to `src/App.css`:
+Add the required theme styles to `src/App.css`:
 
 ```css
 @import "../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
@@ -77,19 +78,19 @@ Add all required CSS imports to `src/App.css`:
 @import "../node_modules/@syncfusion/ej2-treegrid/styles/tailwind3.css";
 ```
 
-> Replace `tailwind3` with your preferred theme: `material`, `bootstrap5`, `fluent2`, `fabric`, etc.
-
-Then import `App.css` at the top of `src/App.tsx`:
+Then import the stylesheet in `src/App.tsx`:
 
 ```tsx
 import './App.css';
 ```
 
+> Replace `tailwind3` with your preferred theme if needed.
+
 ---
 
 ## Basic Gantt Implementation
 
-Minimal working example with hierarchical data:
+Minimal working example using hierarchical data:
 
 ```tsx
 import * as React from 'react';
@@ -105,8 +106,8 @@ const data = [
     EndDate: new Date('04/21/2024'),
     subtasks: [
       { TaskID: 2, TaskName: 'Identify Site Location', StartDate: new Date('04/02/2024'), Duration: 4, Progress: 50 },
-      { TaskID: 3, TaskName: 'Perform Soil Test',      StartDate: new Date('04/02/2024'), Duration: 4, Progress: 50 },
-      { TaskID: 4, TaskName: 'Soil Test Approval',     StartDate: new Date('04/08/2024'), Duration: 0, Progress: 50 },
+      { TaskID: 3, TaskName: 'Perform Soil Test', StartDate: new Date('04/02/2024'), Duration: 4, Progress: 50 },
+      { TaskID: 4, TaskName: 'Soil Test Approval', StartDate: new Date('04/08/2024'), Duration: 0, Progress: 50 },
     ],
   },
   {
@@ -116,7 +117,7 @@ const data = [
     EndDate: new Date('04/21/2024'),
     subtasks: [
       { TaskID: 6, TaskName: 'Develop Floor Plan', StartDate: new Date('04/04/2024'), Duration: 3, Progress: 50 },
-      { TaskID: 7, TaskName: 'List Materials',     StartDate: new Date('04/04/2024'), Duration: 3, Progress: 50 },
+      { TaskID: 7, TaskName: 'List Materials', StartDate: new Date('04/04/2024'), Duration: 3, Progress: 50 },
     ],
   },
 ];
@@ -135,7 +136,7 @@ function App() {
   return (
     <GanttComponent dataSource={data} taskFields={taskFields} height="450px">
       <ColumnsDirective>
-        <ColumnDirective field="TaskID"   width="80" />
+        <ColumnDirective field="TaskID" width="80" />
         <ColumnDirective field="TaskName" headerText="Task Name" width="250" />
         <ColumnDirective field="StartDate" />
         <ColumnDirective field="Duration" />
@@ -152,7 +153,7 @@ export default App;
 
 ## taskFields Mapping
 
-`taskFields` maps your data source fields to Gantt's internal model. All fields are optional except `id` and `name`.
+`taskFields` maps your data source fields to the Gantt model. The required fields are `id` and `name`.
 
 ```tsx
 const taskFields: TaskFieldsModel = {
@@ -178,13 +179,13 @@ const taskFields: TaskFieldsModel = {
 };
 ```
 
-**Key rule:** Use either `child` (hierarchical) **or** `parentID` (flat/self-referential), not both.
+Use either `child` for hierarchical data or `parentID` for flat data, not both.
 
 ---
 
 ## Module Injection
 
-Gantt features are modular. Inject only what you use to keep bundle size lean:
+Inject only the services you need:
 
 ```tsx
 import {
@@ -221,30 +222,22 @@ function App() {
 
 ## Common Setup Gotchas
 
-**CSS not applied:**
-- Ensure all CSS imports are in `App.css` and that file is imported in `App.tsx`.
-- All 14 CSS packages are required — missing any will break the UI.
-
-**TaskID 0 or undefined:**
-- Gantt treats `TaskID: 0` as a root/invalid record. Start IDs from `1`.
-
-**Tasks not rendering:**
-- Verify `taskFields.id` and `taskFields.name` exactly match the field names in your data.
-- For hierarchical data, `taskFields.child` must match the array property name.
-- For flat data, `taskFields.parentID` must match the parent reference field.
-
-**Height required:**
-- Always set `height` prop (e.g., `height="450px"`) — the Gantt won't render without a defined height.
+- Ensure `App.css` is imported in `App.tsx`.
+- Missing any required CSS package can break the UI.
+- Start task IDs from `1`; avoid `0` and `undefined`.
+- Match `taskFields.id` and `taskFields.name` exactly to your data.
+- Set a height such as `height="450px"`; the Gantt needs a fixed height to render.
+- In Auto mode, parent task dates are calculated from child tasks.
 
 ---
 
 ## Grid Lines
 
-Control which lines appear in the TreeGrid section:
+Control the TreeGrid grid lines with `gridLines`:
 
 ```tsx
 <GanttComponent
-  gridLines='Both'   // 'Both' | 'Horizontal' | 'Vertical' | 'None'
+  gridLines='Both'
   dataSource={data}
   taskFields={taskFields}
   height='450px'
@@ -253,12 +246,25 @@ Control which lines appear in the TreeGrid section:
 
 | Value | Effect |
 |---|---|
-| `'Both'` | Horizontal and vertical lines between all cells |
-| `'Horizontal'` | Only horizontal lines between rows |
-| `'Vertical'` | Only vertical lines between columns |
+| `'Both'` | Horizontal and vertical lines |
+| `'Horizontal'` | Horizontal lines only |
+| `'Vertical'` | Vertical lines only |
 | `'None'` | No grid lines |
 
 Default is `'Horizontal'`.
+
+---
+
+## Output
+
+After rendering, the Gantt chart displays:
+
+- A task hierarchy with parent and child records
+- A timeline with taskbars sized by start date and duration
+- Progress indicators on each task
+- Auto-calculated parent dates in Auto scheduling mode
+
+This provides a simple baseline sample for learning how to bind and render Gantt data in React.
 
 **Parent task dates:**
 - In Auto mode, parent task dates are calculated from child tasks and cannot be manually set.

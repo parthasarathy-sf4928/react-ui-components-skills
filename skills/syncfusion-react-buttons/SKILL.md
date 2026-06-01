@@ -1,6 +1,6 @@
 ---
 name: syncfusion-react-buttons
-description: Comprehensive guide for implementing Syncfusion React button components including Button, ButtonGroup, DropDownButton, Floating Action Button, ProgressButton, SplitButton, Speed Dial and Switch button and radio button. Use this when adding styled buttons, toggle behavior, icon support, grouped selections, dropdown action menus, programmatic control floating primary actions, or expandable speed dial menus to a React application.
+description: Comprehensive guide for implementing Syncfusion React button components including Button, ButtonGroup, DropDownButton, Floating Action Button, ProgressButton, SplitButton, Speed Dial, Switch, RadioButton, and Chips. Use this when adding styled buttons, toggle behavior, icon support, grouped selections, dropdown action menus, programmatic control floating primary actions, expandable speed dial menus, compact interactive elements with avatars and drag-and-drop, or single/multiple selection capabilities to a React application.
 metadata:
   author: "Syncfusion Inc"
   version: "33.1.44"
@@ -1412,13 +1412,13 @@ const handleAction = async (args) => {
 - **API Reference:** [Syncfusion SplitButton API](https://ej2.syncfusion.com/react/documentation/api/split-button/)
 - **Live Demos:** [Syncfusion React Demos](https://ej2.syncfusion.com/home/react.html)
 
-## Implementing Syncfusion React RadioButton
+## RadioButton
 
 A skill for implementing the Syncfusion React `RadioButtonComponent` — a graphical UI element that lets users select exactly one option from a group. Supports checked/unchecked states, label positioning, small size, form integration, RTL, disabled state, and full CSS customization.
 
-## Navigation Guide
+### Navigation Guide
 
-### Getting Started
+#### Getting Started
 📄 **Read:** [references/getting-started.md](references/radiobutton-getting-started.md)
 - Package installation and CSS import
 - Basic `RadioButtonComponent` rendering
@@ -1426,14 +1426,14 @@ A skill for implementing the Syncfusion React `RadioButtonComponent` — a graph
 - Quick Vite + React project setup
 - Enabling ripple effect
 
-### Label and Size
+#### Label and Size
 📄 **Read:** [references/label-and-size.md](references/radiobutton-label-and-size.md)
 - Adding captions with the `label` property
 - Positioning labels before/after with `labelPosition`
 - Applying small size with `cssClass="e-small"`
 - Default vs. compact size variants
 
-### Features and State
+#### Features and State
 📄 **Read:** [references/features-and-state.md](references/radiobutton-features-and-state.md)
 - Setting checked/unchecked state with `checked`
 - Disabling a RadioButton with `disabled`
@@ -1442,7 +1442,7 @@ A skill for implementing the Syncfusion React `RadioButtonComponent` — a graph
 - Handling state change via the `change` event
 - Listening to component lifecycle with `created`
 
-### Style and Appearance
+#### Style and Appearance
 📄 **Read:** [references/style-and-appearance.md](references/radiobutton-style-and-appearance.md)
 - Overriding default CSS classes
 - Creating semantic color variants (primary, success, warning, etc.)
@@ -1450,20 +1450,20 @@ A skill for implementing the Syncfusion React `RadioButtonComponent` — a graph
 - Theme Studio integration for global theming
 - CSS class reference table
 
-### Accessibility
+#### Accessibility
 📄 **Read:** [references/accessibility.md](references/radiobutton-accessibility.md)
 - WCAG 2.2 and Section 508 compliance
 - WAI-ARIA attributes (`role`, `aria-checked`, `aria-disabled`)
 - Keyboard navigation shortcuts
 - Screen reader support
 
-### API Reference
+#### API Reference
 📄 **Read:** [references/api.md](references/radiobutton-api.md)
 - All properties: `checked`, `disabled`, `label`, `labelPosition`, `name`, `value`, `cssClass`, `enableRtl`, `enablePersistence`, `enableHtmlSanitizer`, `htmlAttributes`, `locale`
 - Methods: `click()`, `destroy()`, `focusIn()`, `getSelectedValue()`
 - Events: `change` (ChangeArgs), `created`
 
-## Quick Start
+### Quick Start
 
 ```tsx
 import { enableRipple } from '@syncfusion/ej2-base';
@@ -1485,9 +1485,9 @@ function App() {
 export default App;
 ```
 
-## Common Patterns
+### Common Patterns
 
-### Controlled state with change handler
+#### Controlled state with change handler
 ```tsx
 import { RadioButtonComponent, ChangeArgs } from '@syncfusion/ej2-react-buttons';
 import { useState } from 'react';
@@ -1524,7 +1524,7 @@ function App() {
 }
 ```
 
-### Form submission with name/value
+#### Form submission with name/value
 ```tsx
 <form>
   <RadioButtonComponent name="payment" value="card"    label="Credit Card" checked={true} />
@@ -1534,23 +1534,23 @@ function App() {
 </form>
 ```
 
-### Disabled option in a group
+#### Disabled option in a group
 ```tsx
 <RadioButtonComponent label="Available"   name="seat" />
 <RadioButtonComponent label="Unavailable" name="seat" disabled={true} />
 ```
 
-### Small compact size
+#### Small compact size
 ```tsx
 <RadioButtonComponent label="Compact" name="size" cssClass="e-small" />
 ```
 
-### RTL support
+#### RTL support
 ```tsx
 <RadioButtonComponent label="خيار 1" name="rtl" enableRtl={true} />
 ```
 
-## Key Props Summary
+### Key Props Summary
 
 | Prop | Type | Default | Purpose |
 |------|------|---------|---------|
@@ -1564,7 +1564,7 @@ function App() {
 | `enableRtl` | boolean | `false` | Right-to-left layout |
 | `enablePersistence` | boolean | `false` | Persists state across page reloads |
 
-## Decision Guide
+### Decision Guide
 
 - **User picks one of many options** → Use `name` to group + `value` for each option
 - **Pre-select a default** → Set `checked={true}` on the desired option
@@ -1573,3 +1573,141 @@ function App() {
 - **Dense UI layout** → Add `cssClass="e-small"`
 - **RTL language UI** → Use `enableRtl={true}`
 - **Custom color/branding** → Use `cssClass` with custom CSS rules (see style-and-appearance.md)
+
+## Chips
+
+The Syncfusion React Chips (`ChipListComponent`) component renders compact, interactive elements representing inputs, attributes, or actions. It supports single/multiple selection, deletion, drag-and-drop, avatars, icons, templates, and rich styling.
+
+### Navigation Guide
+
+#### Getting Started
+📄 **Read:** [references/getting-started.md](references/chips-getting-started.md)
+- Installation and package setup (`@syncfusion/ej2-react-buttons`)
+- CSS/theme imports
+- Rendering a basic chip or chip list
+- Single chip vs. chip list with `ChipsDirective` / `ChipDirective`
+- Running the application
+
+#### Types and Selection
+📄 **Read:** [references/types-and-selection.md](references/chips-types-and-selection.md)
+- Four chip types: Input, Choice, Filter, Action
+- Single selection (`selection="Single"`) — choice chips
+- Multiple selection (`selection="Multiple"`) — filter chips
+- Deletable chips (`enableDelete`)
+- Pre-selecting chips with `selectedChips`
+- Click events (`onClick`) for action chips
+
+#### Customization
+📄 **Read:** [references/customization.md](references/chips-customization.md)
+- Predefined styles: `e-primary`, `e-success`, `e-info`, `e-warning`, `e-danger`
+- Leading icon (`leadingIconCss`, `leadingIconUrl`)
+- Avatar image (`avatarIconCss`) and avatar text (`avatarText`)
+- Trailing icon (`trailingIconCss`, `trailingIconUrl`)
+- Outline chip (`cssClass="e-outline"`)
+- Custom chip template (`template` prop)
+- `htmlAttributes` for custom HTML attributes
+
+#### Drag and Drop
+📄 **Read:** [references/drag-and-drop.md](references/chips-drag-and-drop.md)
+- Enabling drag and drop (`allowDragAndDrop`)
+- Restricting drag area (`dragArea`)
+- Drag events: `dragStart`, `dragging`, `dragStop`
+- Cross-container drag and drop
+
+#### Style Customization
+📄 **Read:** [references/style.md](references/chips-style.md)
+- CSS overrides for chip text, icon, delete button
+- Outline chip border styling
+- Selected chip background and color
+- Avatar text background styling
+- Chip height/size customization
+
+#### Accessibility
+📄 **Read:** [references/accessibility.md](references/chips-accessibility.md)
+- WCAG 2.2, Section 508, ADA compliance
+- WAI-ARIA attributes (`role`, `aria-selected`, `aria-disabled`, etc.)
+- Keyboard navigation shortcuts
+- RTL support, screen reader support
+
+#### API Reference
+📄 **Read:** [references/api.md](references/chips-api.md)
+- All properties: `text`, `chips`, `selection`, `enableDelete`, `cssClass`, `selectedChips`, `enabled`, `enableRtl`, `enablePersistence`, `allowDragAndDrop`, `dragArea`, `htmlAttributes`, `leadingIconCss`, `leadingIconUrl`, `avatarIconCss`, `avatarText`, `trailingIconCss`, `trailingIconUrl`
+- Methods: `add()`, `remove()`, `find()`, `getSelectedChips()`, `select()`, `destroy()`
+- Events: `click`, `beforeClick`, `created`, `delete`, `deleted`, `dragStart`, `dragging`, `dragStop`
+
+### Quick Start
+
+```tsx
+import { ChipListComponent, ChipsDirective, ChipDirective } from '@syncfusion/ej2-react-buttons';
+import { enableRipple } from '@syncfusion/ej2-base';
+import * as React from 'react';
+import './App.css';
+
+enableRipple(true);
+
+function App() {
+  return (
+    <ChipListComponent id="chip-list">
+      <ChipsDirective>
+        <ChipDirective text="Angular" />
+        <ChipDirective text="React" />
+        <ChipDirective text="Vue" />
+      </ChipsDirective>
+    </ChipListComponent>
+  );
+}
+export default App;
+```
+
+CSS (App.css):
+```css
+@import '../node_modules/@syncfusion/ej2-base/styles/tailwind3.css';
+@import '../node_modules/@syncfusion/ej2-react-buttons/styles/tailwind3.css';
+```
+
+### Common Patterns
+
+#### Filter chips (multi-select)
+```tsx
+<ChipListComponent selection="Multiple">
+  <ChipsDirective>
+    <ChipDirective text="React" />
+    <ChipDirective text="Angular" />
+    <ChipDirective text="Vue" />
+  </ChipsDirective>
+</ChipListComponent>
+```
+
+#### Deletable chips with event
+```tsx
+<ChipListComponent enableDelete={true} delete={(e) => console.log('Deleting:', e.text)}>
+  <ChipsDirective>
+    <ChipDirective text="Tag One" />
+    <ChipDirective text="Tag Two" />
+  </ChipsDirective>
+</ChipListComponent>
+```
+
+#### Chips with avatar initials
+```tsx
+<ChipListComponent>
+  <ChipsDirective>
+    <ChipDirective text="Andrew" avatarText="A" />
+    <ChipDirective text="Laura" avatarText="L" />
+  </ChipsDirective>
+</ChipListComponent>
+```
+
+#### Programmatic control (add/remove chips via ref)
+```tsx
+const chipRef = React.useRef<ChipListComponent>(null);
+
+// Add a chip
+chipRef.current?.add('New Tag');
+
+// Remove chip at index 0
+chipRef.current?.remove([0]);
+
+// Get selected
+const selected = chipRef.current?.getSelectedChips();
+```

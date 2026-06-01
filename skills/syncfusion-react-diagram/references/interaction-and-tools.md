@@ -435,8 +435,9 @@ diagramInstance.sendBackward();  // Ctrl+[
 ### Zoom and Fit
 
 ```tsx
-// Zoom in at a specific point (factor > 1 zooms in, < 1 zooms out)
-diagramInstance.zoom(1.2, { x: 100, y: 100 });
+// Zoom programmatically
+diagramInstance.zoomTo({ type: 'ZoomIn', zoomFactor: 0.2, focusPoint: { x: 0.5, y: 0.5 } });
+diagramInstance.zoomTo({ type: 'ZoomOut', zoomFactor: 0.2 });
 
 // Fit entire diagram into view
 diagramInstance.fitToPage({ mode: 'Page', region: 'Content', canZoomIn: false });
@@ -609,9 +610,26 @@ import { DiagramContextMenu, Inject } from '@syncfusion/ej2-react-diagrams';
 ### Custom Context Menu Items
 
 ```tsx
-import { MenuEventArgs } from '@syncfusion/ej2-navigations';
 
-<DiagramComponent
+import { useRef } from 'react';
+import {DiagramComponent, DiagramContextMenu, DiagramMenuEventArgs, Inject, NodeModel } from '@syncfusion/ej2-react-diagrams';
+
+const nodes: NodeModel[] = [
+  {
+    id: 'node1',
+    offsetX: 100, offsetY: 200,
+    width: 60, height: 60,
+  },
+];
+
+export default function App() {
+  const diagramRef = useRef<DiagramComponent>(null);
+  return (
+     <DiagramComponent
+     ref={diagramRef}
+     nodes={nodes}
+     width={1000}
+     height={500}
   contextMenuSettings={{
     show: true,
     showCustomMenuOnly: true, // hide default items
@@ -629,17 +647,21 @@ import { MenuEventArgs } from '@syncfusion/ej2-navigations';
       { text: 'Clone', id: 'clone', target: '.e-elementcontent', iconCss: 'e-icons e-copy' },
     ],
   }}
-  contextMenuClick={(args: MenuEventArgs) => {
-    const node = diagramInstance.selectedItems.nodes[0];
+  contextMenuClick={(args: DiagramMenuEventArgs) => {
+    const diagram = diagramRef.current;
+    if (!diagram) return;
+    const node = diagram.selectedItems.nodes![0];
     if (!node) return;
-    if (args.item.text === 'Red')   { node.style.fill = 'red';  diagramInstance.dataBind(); }
-    if (args.item.text === 'Blue')  { node.style.fill = 'blue'; diagramInstance.dataBind(); }
-    if (args.item.id  === 'clone')  { diagramInstance.copy(); diagramInstance.paste(); }
+    if (args.item.text === 'Red')   { node.style!.fill = 'red';  diagram.dataBind(); }
+    if (args.item.text === 'Blue')  { node.style!.fill = 'blue'; diagram.dataBind(); }
+    if (args.item.id  === 'clone')  { diagram.copy(); diagram.paste(); }
   }}
-  ...
+
 >
   <Inject services={[DiagramContextMenu]} />
 </DiagramComponent>
+  );
+}
 ```
 
 ### Conditionally Hide Menu Items
@@ -675,11 +697,20 @@ User handles are icons that appear around a selected element for quick actions.
 ### Define User Handles
 
 ```tsx
-import { UserHandleModel } from '@syncfusion/ej2-react-diagrams';
 
+import { useRef } from 'react';
+import { DiagramComponent, NodeModel, UserHandleModel } from '@syncfusion/ej2-react-diagrams';
+
+const nodes: NodeModel[] = [
+  {
+    id: 'node1',
+    offsetX: 100, offsetY: 200,
+    width: 60, height: 60,
+  },
+];
 const userHandles: UserHandleModel[] = [{
   name: 'clone',
-  pathData: 'M0,3.42 L1.36,3.42 ... Z',  // SVG path
+  pathData: 'M0 0 L100 0 L100 80 L0 80 Z',  // SVG path
   offset: 1,
   side: 'Bottom',
   horizontalAlignment: 'Left',
@@ -694,17 +725,28 @@ const userHandles: UserHandleModel[] = [{
   pathColor: '#6BA5D7',
   visible: true,
 }];
+export default function App() {
+  const diagramRef = useRef<DiagramComponent>(null);
+  return (
+    <DiagramComponent
+      selectedItems={{ userHandles }}
+      ref={diagramRef}
+      width={1000}
+      height={500}
+      nodes={nodes}
+      onUserHandleMouseDown={(args) => {
+        const diagram = diagramRef.current;
+        if (args.element.name === 'clone') {
+          diagram.copy();
+          diagram.paste();
+        }
+      }}
 
-<DiagramComponent
-  selectedItems={{ userHandles }}
-  onUserHandleMouseDown={(args) => {
-    if (args.element.name === 'clone') {
-      diagramInstance.copy();
-      diagramInstance.paste();
-    }
-  }}
-  ...
-/>
+    />
+  );
+}
+
+
 ```
 
 ### Alignment Options
@@ -742,13 +784,16 @@ const userHandles: UserHandleModel[] = [
 Fixed user handles are permanently visible on specific nodes or connectors regardless of selection state.
 
 ```tsx
+
+import { useRef } from 'react';
+import { DiagramComponent, NodeModel } from '@syncfusion/ej2-react-diagrams';
 const nodes: NodeModel[] = [{
   id: 'n1',
   offsetX: 250, offsetY: 250,
   width: 100, height: 100,
   fixedUserHandles: [{
     id: 'colorHandle',
-    pathData: 'M31.5,13.5 C31.5,20.95 ... Z',
+    pathData: 'M0 0 L100 0 L100 80 L0 80 Z',
     width: 20, height: 20,
     offset: { x: 1, y: 0 },     // top-right corner
     margin: { left: 20 },
@@ -759,17 +804,25 @@ const nodes: NodeModel[] = [{
     tooltip: { content: 'Change color' },
   }],
 }];
-
+export default function App() {
+  const diagramRef = useRef<DiagramComponent>(null);
+  return (
 <DiagramComponent
   nodes={nodes}
+  ref={diagramRef}
+  width={1000}
+  height={500}
   fixedUserHandleClick={(args) => {
+      const diagram = diagramRef.current;
     if (args.fixedUserHandle.id === 'colorHandle') {
       args.element.style.fill = '#6BA5D7';
-      diagramInstance.dataBind();
+      diagram.dataBind();
     }
   }}
-  ...
+
 />
+  );
+}
 ```
 
 > **Tip:** Each `fixedUserHandle` id must be unique across the diagram.
