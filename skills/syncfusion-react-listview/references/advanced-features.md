@@ -569,3 +569,338 @@ export function CompleteAdvancedListView() {
 }
 ```
 
+## Layout Patterns for Complex UI
+
+### Patient Portal Pattern: Message List in Card
+
+```tsx
+import { ListViewComponent } from '@syncfusion/ej2-react-lists';
+
+interface Message {
+  id: string;
+  senderName: string;
+  subject: string;
+  date: string;
+  isRead: boolean;
+}
+
+export function PatientPortalMessagePanel() {
+  const messagesData: Message[] = [
+    { id: '1', senderName: 'Dr. Sarah Johnson', subject: 'Lab Results Review', date: '2026-05-29', isRead: true },
+    { id: '2', senderName: 'Dr. Michael Chen', subject: 'Appointment Reminder', date: '2026-05-28', isRead: false },
+    { id: '3', senderName: 'Billing Department', subject: 'Payment Confirmation', date: '2026-05-27', isRead: true }
+  ];
+
+  const messageTemplate = (props: Message) => (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '12px 16px',
+      borderBottom: '1px solid #f0f0f0',
+      backgroundColor: props.isRead ? 'white' : '#e3f2fd',
+      gap: '4px',
+      borderLeft: `4px solid ${props.isRead ? 'transparent' : '#2196F3'}`
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontWeight: 600, color: '#333' }}>{props.senderName}</span>
+        <span style={{ fontSize: '12px', color: '#999' }}>{props.date}</span>
+      </div>
+      <div style={{ fontSize: '14px', color: '#666' }}>
+        {props.subject}
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={{
+      border: '1px solid #e0e0e0',
+      borderRadius: '4px',
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
+      <div style={{
+        padding: '16px',
+        backgroundColor: '#f5f5f5',
+        borderBottom: '1px solid #e0e0e0',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }}>
+        <h3 style={{ margin: 0 }}>Message Your Provider</h3>
+        <span style={{
+          display: 'inline-block',
+          width: '24px',
+          height: '24px',
+          backgroundColor: '#f44336',
+          color: 'white',
+          borderRadius: '50%',
+          textAlign: 'center',
+          lineHeight: '24px',
+          fontSize: '12px',
+          fontWeight: 'bold'
+        }}>
+          3
+        </span>
+      </div>
+      <div style={{ flex: 1, overflow: 'hidden', minHeight: 0 }}>
+        <ListViewComponent
+          dataSource={messagesData}
+          fields={{ id: 'id', text: 'subject' }}
+          template={messageTemplate}
+          height="300px"
+          width="100%"
+        />
+      </div>
+    </div>
+  );
+}
+```
+
+### Dashboard Grid Layout: 3x2 with ListViews
+
+```tsx
+interface Appointment {
+  id: string;
+  doctorName: string;
+  time: string;
+  status: 'CONFIRMED' | 'PENDING';
+}
+
+interface Alert {
+  id: string;
+  type: 'WARNING' | 'INFO' | 'ERROR';
+  message: string;
+  time: string;
+}
+
+interface Ticket {
+  id: string;
+  ticketNo: string;
+  priority: 'HIGH' | 'MEDIUM' | 'LOW';
+  status: string;
+}
+
+export function MonitoringDashboard() {
+  const appointmentsData: Appointment[] = [
+    { id: '1', doctorName: 'Dr. Sarah', time: '09:00 AM', status: 'CONFIRMED' },
+    { id: '2', doctorName: 'Dr. Brown', time: '03:30 PM', status: 'PENDING' }
+  ];
+
+  const alertsData: Alert[] = [
+    { id: '1', type: 'WARNING', message: 'Memory approaching 90% on server-03', time: '15 minutes ago' },
+    { id: '2', type: 'INFO', message: 'Deployment completed successfully', time: '1 hour ago' }
+  ];
+
+  const ticketsData: Ticket[] = [
+    { id: '1', ticketNo: 'TICK-1234', priority: 'HIGH', status: 'Login page loading slow' },
+    { id: '2', ticketNo: 'TICK-5678', priority: 'MEDIUM', status: 'Dashboard performance issue' },
+    { id: '3', ticketNo: 'TICK-9012', priority: 'LOW', status: 'Export feature not working' }
+  ];
+
+  const appointmentTemplate = (props: Appointment) => (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '12px 16px',
+      borderBottom: '1px solid #f0f0f0'
+    }}>
+      <div>
+        <div style={{ fontWeight: 600 }}>{props.doctorName}</div>
+        <div style={{ fontSize: '12px', color: '#666' }}>{props.time}</div>
+      </div>
+      <span style={{
+        padding: '4px 8px',
+        borderRadius: '3px',
+        fontSize: '11px',
+        backgroundColor: props.status === 'CONFIRMED' ? '#c8e6c9' : '#fff9c4',
+        color: props.status === 'CONFIRMED' ? '#2e7d32' : '#f57f17'
+      }}>
+        {props.status}
+      </span>
+    </div>
+  );
+
+  const alertTemplate = (props: Alert) => (
+    <div style={{
+      padding: '12px 16px',
+      borderBottom: '1px solid #f0f0f0',
+      borderLeft: `4px solid ${props.type === 'WARNING' ? '#ff9800' : props.type === 'ERROR' ? '#f44336' : '#2196f3'}`,
+      backgroundColor: props.type === 'WARNING' ? '#fff8e1' : props.type === 'ERROR' ? '#ffebee' : '#e3f2fd'
+    }}>
+      <div style={{ fontWeight: 600, fontSize: '12px', marginBottom: '4px' }}>{props.type}</div>
+      <div style={{ fontSize: '13px', marginBottom: '4px' }}>{props.message}</div>
+      <div style={{ fontSize: '11px', color: '#999' }}>{props.time}</div>
+    </div>
+  );
+
+  const ticketTemplate = (props: Ticket) => (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '12px 16px',
+      borderBottom: '1px solid #f0f0f0'
+    }}>
+      <div>
+        <div style={{ fontWeight: 600, color: '#2196F3' }}>{props.ticketNo}</div>
+        <div style={{ fontSize: '12px', color: '#666' }}>{props.status}</div>
+      </div>
+      <span style={{
+        padding: '4px 8px',
+        borderRadius: '3px',
+        fontSize: '10px',
+        fontWeight: 'bold',
+        backgroundColor: props.priority === 'HIGH' ? '#ffcdd2' : props.priority === 'MEDIUM' ? '#ffe0b2' : '#c8e6c9',
+        color: props.priority === 'HIGH' ? '#c62828' : props.priority === 'MEDIUM' ? '#e65100' : '#2e7d32'
+      }}>
+        {props.priority}
+      </span>
+    </div>
+  );
+
+  const cardContainerStyle = {
+    border: '1px solid #e0e0e0',
+    borderRadius: '4px',
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column' as const
+  };
+
+  const cardHeaderStyle = {
+    padding: '12px 16px',
+    backgroundColor: '#f5f5f5',
+    borderBottom: '1px solid #e0e0e0',
+    fontWeight: 600
+  };
+
+  const cardBodyStyle = {
+    flex: 1,
+    overflow: 'hidden',
+    minHeight: 0
+  };
+
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      gap: '16px',
+      padding: '16px'
+    }}>
+      {/* Top Row */}
+      <div style={cardContainerStyle}>
+        <div style={cardHeaderStyle}>Today's Appointments</div>
+        <div style={cardBodyStyle}>
+          <ListViewComponent
+            dataSource={appointmentsData}
+            template={appointmentTemplate}
+            height="200px"
+            width="100%"
+          />
+        </div>
+      </div>
+
+      <div style={cardContainerStyle}>
+        <div style={cardHeaderStyle}>Quick Stats</div>
+        <div style={{ padding: '16px' }}>
+          {/* Stats Cards */}
+        </div>
+      </div>
+
+      <div style={cardContainerStyle}>
+        <div style={cardHeaderStyle}>Filter by Doctor</div>
+        <div style={cardBodyStyle}>
+          <ListViewComponent
+            dataSource={[{ id: '1', text: 'Dr. Sarah Smith' }]}
+            height="200px"
+          />
+        </div>
+      </div>
+
+      {/* Middle Row */}
+      <div style={cardContainerStyle}>
+        <div style={cardHeaderStyle}>Deployment History</div>
+        <div style={cardBodyStyle}>
+          <ListViewComponent
+            dataSource={[]}
+            height="200px"
+          />
+        </div>
+      </div>
+
+      <div style={cardContainerStyle}>
+        <div style={cardHeaderStyle}>Active Alerts</div>
+        <div style={cardBodyStyle}>
+          <ListViewComponent
+            dataSource={alertsData}
+            template={alertTemplate}
+            height="200px"
+            width="100%"
+          />
+        </div>
+      </div>
+
+      <div style={cardContainerStyle}>
+        <div style={cardHeaderStyle}>Open Tickets</div>
+        <div style={cardBodyStyle}>
+          <ListViewComponent
+            dataSource={ticketsData}
+            template={ticketTemplate}
+            height="200px"
+            width="100%"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+### Key Alignment Fixes
+
+**Problems Fixed:**
+1. ✅ ListView not filling container - Set `height: 100%` and wrap in flex container
+2. ✅ Items not aligned properly - Use flexbox with `gap` instead of individual margins
+3. ✅ Scrolling issues - Set `overflow: auto` and `minHeight: 0` on flex container
+4. ✅ Border alignment - Remove default padding, use explicit template padding
+5. ✅ Multi-column layout alignment - Use CSS Grid with proper row/column spanning
+6. ✅ Card containers misaligned - Use `flexDirection: 'column'` with flex children
+7. ✅ Header not staying fixed - Use `flexShrink: 0` for non-scrollable elements
+8. ✅ Content overflow - Set parent container `overflow: hidden` and child `overflow: auto`
+
+**CSS Class for Alignment:**
+
+```css
+/* Add to your global CSS for consistent ListView styling */
+.listview-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.listview-card-header {
+  padding: 12px 16px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+.listview-card-body {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+.listview-item-aligned {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 12px;
+  box-sizing: border-box;
+}
+```
+

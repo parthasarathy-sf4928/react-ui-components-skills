@@ -206,6 +206,16 @@ const itemTemplate = (props) => (
 - Animations and effects
 - Custom icons and image display
 - Enable/disable item states
+- Layout patterns for complex dashboards
+
+### Layout & Alignment Patterns ⭐ **NEW**
+📄 **Read:** [references/layout-alignment-patterns.md](references/layout-alignment-patterns.md)
+- **Patient Portal Pattern:** ListView with Cards, Appointments, Prescriptions, Messages
+- **Appointments Dashboard:** 3x2 Grid layout with filters, scheduler, analytics
+- **Monitoring Dashboard:** 3x3 Grid layout with KPIs, alerts, tickets
+- Fixing common alignment issues (scrolling, borders, spacing)
+- Responsive grid layouts for mobile/tablet/desktop
+- Complete code examples for each pattern
 
 ### Performance & Virtualization
 📄 **Read:** [references/performance-virtualization.md](references/performance-virtualization.md)
@@ -296,6 +306,59 @@ const handleFilter = (searchText) => {
 />
 ```
 
+### Pattern 5: ListView in Card Container (NEW)
+
+```tsx
+<div style={{
+  border: '1px solid #e0e0e0',
+  borderRadius: '4px',
+  overflow: 'hidden',
+  display: 'flex',
+  flexDirection: 'column'
+}}>
+  <div style={{
+    padding: '16px',
+    backgroundColor: '#f5f5f5',
+    borderBottom: '1px solid #e0e0e0'
+  }}>
+    <h3 style={{ margin: 0 }}>Messages</h3>
+  </div>
+  <div style={{ flex: 1, overflow: 'auto', minHeight: 0 }}>
+    <ListViewComponent
+      dataSource={items}
+      height="100%"
+      width="100%"
+    />
+  </div>
+</div>
+```
+
+### Pattern 6: ListView in Grid Layout (NEW)
+
+```tsx
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: '16px'
+}}>
+  {/* Card 1 - ListView */}
+  <div style={{ border: '1px solid #e0e0e0', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ padding: '12px', backgroundColor: '#f5f5f5' }}>Appointments</div>
+    <div style={{ flex: 1, overflow: 'auto', minHeight: 0 }}>
+      <ListViewComponent dataSource={appointments} height="300px" />
+    </div>
+  </div>
+  {/* Card 2, Card 3, etc. */}
+</div>
+```
+
+### Pattern 7: Dashboard with Multiple ListViews (NEW)
+
+See [Layout & Alignment Patterns Guide](references/layout-alignment-patterns.md) for:
+- 🏥 **Patient Portal:** Appointments + Messages + Prescriptions grid
+- 📅 **Appointments Dashboard:** 3x2 grid with filters and scheduler
+- 📊 **Monitoring Dashboard:** 3x3 grid with KPIs, logs, alerts, and tickets
+
 ## Key Properties
 
 | Property | Type | Default | Purpose |
@@ -365,6 +428,7 @@ const handleFilter = (searchText) => {
 
 ## Tips & Best Practices
 
+### General Best Practices
 - ✅ Always map `fields` correctly for data to display
 - ✅ Use templates for rich UI beyond plain text
 - ✅ Enable virtualization for 1000+ items
@@ -375,6 +439,19 @@ const handleFilter = (searchText) => {
 - ✅ Clean up with `destroy()` when component unmounts
 - ❌ Don't render complex components in every item template
 - ❌ Don't forget to set proper `fields` mapping
+
+### Alignment & Layout Best Practices ⭐
+- ✅ Always set explicit `height` on parent container when using flex layout
+- ✅ Use `overflow: 'auto'` and `minHeight: 0` on flex children for scrolling
+- ✅ Use `flexShrink: 0` on headers to prevent shrinking
+- ✅ Use `gap` in templates instead of individual margins for consistent spacing
+- ✅ Set `width: '100%'` and `height: '100%'` on ListView to fill container
+- ✅ Wrap ListView in flex container with `display: 'flex'` and `flexDirection: 'column'`
+- ✅ Use CSS Grid for dashboard layouts with proper `gridColumn`/`gridRow`
+- ✅ Set `overflow: 'hidden'` on card container to respect border-radius
+- ❌ Don't rely on default margins - they cause misalignment
+- ❌ Don't skip flex container setup - ListView needs proper parent context
+- ❌ Don't forget `minHeight: 0` on scrolling containers in flex
 
 ## Troubleshooting
 

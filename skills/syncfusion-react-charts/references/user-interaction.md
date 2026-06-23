@@ -161,7 +161,7 @@ import { Zoom } from '@syncfusion/ej2-react-charts';
 
 <ChartComponent
   zoomSettings={{
-    enableSelectionZoom: true, // drag to zoom
+    enableSelectionZooming: true, // drag to zoom
     enablePinchZooming: true, // touch pinch zoom
     enableMouseWheelZooming: true, // mouse wheel zoom
     mode: 'XY' // or 'X', 'Y'
@@ -182,10 +182,10 @@ import { Zoom } from '@syncfusion/ej2-react-charts';
 ```jsx
 <ChartComponent
   zoomSettings={{
-    enableSelectionZoom: true,
+    enableSelectionZooming: true,
     enablePinchZooming: true,
     enableMouseWheelZooming: false, // disable mouse wheel
-    enableDeferredZoom: true, // smooth animation
+    enableDeferredZooming: true, // smooth animation
     enableScrollbar: true, // show scrollbar when zoomed
     toolbarItems: ['ZoomIn', 'ZoomOut', 'Pan', 'Reset'] // toolbar buttons
   }}
@@ -203,7 +203,7 @@ import { ScrollBar } from '@syncfusion/ej2-react-charts';
 
 <ChartComponent
   zoomSettings={{
-    enableSelectionZoom: true,
+    enableSelectionZooming: true,
     enableScrollbar: true
   }}
 >
@@ -371,7 +371,7 @@ export default function SynchronizedCharts() {
     <>
       <ChartComponent
         zoomSettings={{
-          enableSelectionZoom: true
+          enableSelectionZooming: true
         }}
         // Handle zoom and update both
       >
@@ -483,7 +483,7 @@ Respond to chart interactions programmatically.
 
 ```jsx
 <ChartComponent
-  zoomSettings={{ enableSelectionZoom: true }}
+  zoomSettings={{ enableSelectionZooming: true }}
   zoomStart={(args) => {
     console.log('Zoom started');
   }}
@@ -571,7 +571,7 @@ export default function TimeRangeChart() {
     <>
       <ChartComponent
         zoomSettings={{
-          enableSelectionZoom: true
+          enableSelectionZooming: true
         }}
         zoomComplete={(args) => {
           setRange({

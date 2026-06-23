@@ -612,3 +612,289 @@ export function CompleteTemplatingExample() {
 }
 ```
 
+## Alignment & Layout Patterns
+
+### ListView in Card Container
+
+When using ListView inside card layouts, ensure proper alignment and spacing:
+
+```tsx
+// Card wrapper with proper alignment
+const cardContainerStyle = {
+  border: '1px solid #e0e0e0',
+  borderRadius: '4px',
+  overflow: 'hidden',
+  display: 'flex',
+  flexDirection: 'column' as const,
+  height: '100%'
+};
+
+const cardHeaderStyle = {
+  padding: '16px',
+  borderBottom: '1px solid #e0e0e0',
+  backgroundColor: '#f5f5f5'
+};
+
+const cardContentStyle = {
+  flex: 1,
+  overflow: 'hidden'  // Important for ListView scrolling
+};
+
+export function CardWithListView() {
+  return (
+    <div style={cardContainerStyle}>
+      <div style={cardHeaderStyle}>
+        <h3 style={{ margin: '0' }}>Messages</h3>
+      </div>
+      <div style={cardContentStyle}>
+        <ListViewComponent
+          dataSource={messagesData}
+          height="100%"  // Fill container
+          width="100%"   // Full width
+        />
+      </div>
+    </div>
+  );
+}
+```
+
+### ListView in Grid Layout (2x3, 3x3)
+
+```tsx
+// Grid container with proper spacing
+const gridContainerStyle = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+  gap: '16px',
+  padding: '16px'
+};
+
+const gridItemStyle = {
+  border: '1px solid #e0e0e0',
+  borderRadius: '4px',
+  overflow: 'hidden',
+  display: 'flex',
+  flexDirection: 'column' as const
+};
+
+export function GridLayoutWithListView() {
+  return (
+    <div style={gridContainerStyle}>
+      {/* Item 1 - ListView */}
+      <div style={gridItemStyle}>
+        <div style={{ padding: '12px', backgroundColor: '#f5f5f5', borderBottom: '1px solid #e0e0e0' }}>
+          <h4 style={{ margin: 0 }}>Appointments</h4>
+        </div>
+        <div style={{ flex: 1, overflow: 'hidden' }}>
+          <ListViewComponent
+            dataSource={appointmentsData}
+            height="300px"
+            width="100%"
+          />
+        </div>
+      </div>
+
+      {/* Item 2 - Another ListView or Component */}
+      <div style={gridItemStyle}>
+        <div style={{ padding: '12px', backgroundColor: '#f5f5f5', borderBottom: '1px solid #e0e0e0' }}>
+          <h4 style={{ margin: 0 }}>Messages</h4>
+        </div>
+        <div style={{ flex: 1, overflow: 'hidden' }}>
+          <ListViewComponent
+            dataSource={messagesData}
+            height="300px"
+            width="100%"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+### ListView with Fixed Height and Scrolling
+
+Fix alignment issues by explicitly controlling height and overflow:
+
+```tsx
+const listContainerStyle = {
+  display: 'flex',
+  flexDirection: 'column' as const,
+  height: '400px',  // Fixed height
+  border: '1px solid #e0e0e0',
+  borderRadius: '4px'
+};
+
+const listHeaderStyle = {
+  padding: '12px 16px',
+  borderBottom: '1px solid #e0e0e0',
+  backgroundColor: '#f5f5f5',
+  flexShrink: 0  // Don't shrink header
+};
+
+const listBodyStyle = {
+  flex: 1,
+  overflow: 'auto',  // Enable scrolling
+  minHeight: 0  // Important for flex container
+};
+
+export function ListViewWithProperScroll() {
+  return (
+    <div style={listContainerStyle}>
+      <div style={listHeaderStyle}>
+        <h4 style={{ margin: 0 }}>Recent Activity</h4>
+      </div>
+      <div style={listBodyStyle}>
+        <ListViewComponent
+          dataSource={activityData}
+          height="100%"
+          width="100%"
+        />
+      </div>
+    </div>
+  );
+}
+```
+
+### Alignment Fix: ListView Item Padding & Spacing
+
+```tsx
+// Template with consistent alignment
+const alignedItemTemplate = (props: any) => (
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    padding: '12px 16px',
+    borderBottom: '1px solid #f0f0f0',
+    gap: '12px',  // Use gap instead of margin for consistency
+    width: '100%',
+    boxSizing: 'border-box'
+  }}>
+    <div style={{ width: '40px', height: '40px', flexShrink: 0 }}>
+      {/* Avatar or Icon */}
+    </div>
+    <div style={{ flex: 1, minWidth: 0 }}>
+      <div style={{ fontWeight: 600 }}>{props.title}</div>
+      <div style={{ fontSize: '12px', color: '#666', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        {props.subtitle}
+      </div>
+    </div>
+    <div style={{ flexShrink: 0 }}>
+      {/* Action buttons */}
+    </div>
+  </div>
+);
+
+<ListViewComponent
+  dataSource={data}
+  template={alignedItemTemplate}
+/>
+```
+
+### Responsive ListView Layout
+
+```tsx
+import { useState, useEffect } from 'react';
+
+export function ResponsiveListView() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const listViewHeight = isMobile ? '300px' : '500px';
+  const containerPadding = isMobile ? '8px' : '16px';
+
+  return (
+    <div style={{
+      padding: containerPadding,
+      border: '1px solid #e0e0e0',
+      borderRadius: '4px'
+    }}>
+      <h3 style={{ margin: '0 0 12px 0' }}>Inbox</h3>
+      <ListViewComponent
+        dataSource={messagesData}
+        height={listViewHeight}
+        width="100%"
+      />
+    </div>
+  );
+}
+```
+
+### Multi-Column Layout with ListView (Dashboard Pattern)
+
+```tsx
+export function DashboardLayout() {
+  const mainContainerStyle = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 2fr 1fr',
+    gap: '16px',
+    padding: '16px'
+  };
+
+  const sidebarStyle = {
+    display: 'flex',
+    flexDirection: 'column' as const,
+    gap: '16px'
+  };
+
+  const contentAreaStyle = {
+    display: 'flex',
+    flexDirection: 'column' as const
+  };
+
+  const cardStyle = {
+    border: '1px solid #e0e0e0',
+    borderRadius: '4px',
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column' as const
+  };
+
+  return (
+    <div style={mainContainerStyle}>
+      {/* Left Sidebar - ListView */}
+      <div style={sidebarStyle}>
+        <div style={cardStyle}>
+          <div style={{ padding: '12px', backgroundColor: '#f5f5f5', borderBottom: '1px solid #e0e0e0' }}>
+            <h4 style={{ margin: 0 }}>Filters</h4>
+          </div>
+          <div style={{ flex: 1, overflow: 'auto', minHeight: 0 }}>
+            <ListViewComponent
+              dataSource={filtersData}
+              height="400px"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Middle Content Area */}
+      <div style={contentAreaStyle}>
+        {/* Charts, Tables, etc. */}
+      </div>
+
+      {/* Right Sidebar - Messages ListView */}
+      <div style={sidebarStyle}>
+        <div style={cardStyle}>
+          <div style={{ padding: '12px', backgroundColor: '#f5f5f5', borderBottom: '1px solid #e0e0e0' }}>
+            <h4 style={{ margin: 0 }}>Messages</h4>
+          </div>
+          <div style={{ flex: 1, overflow: 'auto', minHeight: 0 }}>
+            <ListViewComponent
+              dataSource={messagesData}
+              height="400px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
