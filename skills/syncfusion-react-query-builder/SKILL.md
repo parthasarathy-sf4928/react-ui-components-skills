@@ -3,7 +3,7 @@ name: syncfusion-react-query-builder
 description: Comprehensive guide to implementing Syncfusion React Query Builder component. Use this skill when building advanced filter interfaces, creating complex data query systems, or implementing dynamic rule-based filtering. This skill covers query builder configuration, SQL query conversion, drag-and-drop filtering, customization, and state management.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Forms"
 ---
 

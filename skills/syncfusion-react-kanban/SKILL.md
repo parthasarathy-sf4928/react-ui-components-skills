@@ -3,7 +3,7 @@ name: syncfusion-react-kanban
 description: Implement Syncfusion React Kanban component for flexible task management and workflow visualization. Use this when building kanban boards, workflow stages, or card-based task management systems. This skill covers drag-and-drop card operations, swimlane organization, WIP limit validation, custom card templates, event handling, and API data binding for React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "data-visualization"
 ---
 

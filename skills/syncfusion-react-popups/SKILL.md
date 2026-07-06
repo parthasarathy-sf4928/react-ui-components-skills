@@ -3,7 +3,7 @@ name: syncfusion-react-popups
 description: Comprehensive guide for implementing Syncfusion React popup components including Dialog, ToolTip. Use this when building modal/modeless dialogs, confirmation popups, forms in dialogs, draggable windows, popovers, tooltips, and overlaid content with custom positioning, animations, WCAG 2.2 accessibility, forms integration, and event handling in React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Layout"
 ---
 

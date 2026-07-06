@@ -3,7 +3,7 @@ name: syncfusion-react-markdown-converter
 description: Implement the Syncfusion Markdown Converter in React to convert Markdown text into clean HTML. Use this when converting Markdown to HTML in React, integrating a live Markdown preview with the Rich Text Editor in Markdown mode, configuring GFM or line break options, or working with MarkdownConverter.toHtml() and MarkdownConverterOptions. This skill covers the @syncfusion/ej2-markdown-converter package and Markdown Editor integration with HTML preview in React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "File Viewers & Editors"
 ---
 

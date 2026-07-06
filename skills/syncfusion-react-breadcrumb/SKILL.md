@@ -3,7 +3,7 @@ name: syncfusion-react-breadcrumb
 description: Implement and configure Syncfusion React Breadcrumb component for navigation paths, routing, and site hierarchy. Use this skill whenever users need breadcrumb navigation, want to create hierarchical navigation paths, display location breadcrumbs, handle navigation between pages, customize overflow behaviors, or integrate breadcrumbs with routing libraries.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Navigation Components"
 ---
 

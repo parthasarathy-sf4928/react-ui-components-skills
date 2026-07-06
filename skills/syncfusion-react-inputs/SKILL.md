@@ -3,7 +3,7 @@ name: syncfusion-react-inputs
 description: Comprehensive guide for implementing Syncfusion React input components including Uploader, NumericTextBox, TextBox, TextArea, CheckBox, OTP Input, Signature, RangeSlider, ColorPicker, MaskedTextBox, and Rating. Use this when building file upload UIs with async/chunk uploads, drag-and-drop functionality, numeric inputs with validation and formatting, text inputs with floating labels, custom adornments, form integration, accessibility compliance, and styling in React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Inputs"
 ---
 

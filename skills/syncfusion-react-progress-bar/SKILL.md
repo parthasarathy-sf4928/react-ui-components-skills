@@ -3,7 +3,7 @@ name: syncfusion-react-progress-bar
 description: Implement Syncfusion React Progress Bar for visual feedback. Use this skill whenever users need to display progress indicators, loading states, file uploads, data processing, or task completion in React applications. Trigger when user mentions progress bars, loading spinners, progress indicators, determinate/indeterminate states, circular/linear progress, or any progress visualization scenario.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Notifications"
 ---
 

@@ -3,7 +3,7 @@ name: syncfusion-react-gantt-chart
 description: Implement, configure, and customize the Syncfusion React Gantt Chart component. Use this when building project scheduling applications with task timelines, dependencies, and resource management. Covers GanttComponent setup, task constraints, taskbar customization, filtering, sorting, Excel/PDF export, critical path analysis, milestones, predecessors, resource view, and baseline tracking.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion React Gantt Chart

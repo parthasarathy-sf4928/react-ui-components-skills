@@ -3,7 +3,7 @@ name: syncfusion-react-sidebar
 description: Implement responsive Syncfusion React Sidebar component for navigation layouts. Use this when building responsive navigation menus, drawer layouts, or collapsible sidebars with various display modes (Over, Push, Slide). This skill covers sidebar configuration, animations, backdrop overlays, keyboard accessibility, and integration with multi-level navigation systems.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Implementing Syncfusion React Sidebar

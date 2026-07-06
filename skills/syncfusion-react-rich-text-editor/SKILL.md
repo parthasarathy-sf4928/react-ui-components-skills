@@ -3,7 +3,7 @@ name: syncfusion-react-rich-text-editor
 description: "Implements the Syncfusion React Rich Text Editor (RichTextEditorComponent) from ej2-react-richtexteditor, supporting HTML (WYSIWYG) and Markdown editing. Use this skill for toolbar configuration, image/video/audio insertion, paste cleanup, AI assistant integration, emoji picker, slash menu, mentions, import/export Word/PDF, form validation, and source code view in React applications."
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "File Viewers & Editors"
 ---
 

@@ -3,7 +3,7 @@ name: syncfusion-react-ribbon
 description: Implement the Syncfusion React Ribbon component. Use this skill for creating Ribbon UIs with tabs, groups, items, Classic or Simplified layouts, file menu and backstage view, contextual tabs, galleries, KeyTips, accessibility, theming, responsive behavior, customization, and troubleshooting in React.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion React Ribbon

@@ -3,7 +3,7 @@ name: syncfusion-react-toolbar
 description: "Implement the Syncfusion React Toolbar component to create responsive command bars and action toolbars. This skill covers organizing buttons, separators, and input components with various overflow handling modes. Use this when building rich text editors, document editors, or command-driven interfaces in React applications."
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Navigation"
 ---
 

@@ -17,10 +17,10 @@ Syncfusion React components are available as npm packages and work seamlessly wi
 
 ### Syncfusion Package Installation
 
-All Syncfusion React components are distributed via npm at [npmjs.com](https://www.npmjs.com/search?q=ej2-react). Install the required component package:
+All Syncfusion React components are distributed via npm at [npmjs.com](https://www.npmjs.com/search?q=ej2-react). Install the required components packages and theme package:
 
 ```bash
-npm install @syncfusion/ej2-react-grids@latest --save
+npm install @syncfusion/ej2-react-grids@latest @syncfusion/ej2-tailwind3-theme@latest --save
 ```
 
 ### CSS Theme Import
@@ -28,15 +28,7 @@ npm install @syncfusion/ej2-react-grids@latest --save
 Choose one theme and import it in your main CSS file or entry point:
 
 ```css
-@import "../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-buttons/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-calendars/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-dropdowns/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-inputs/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-navigations/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-popups/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-react-grids/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
 ```
 
 **Available themes:** tailwind3, bootstrap5.3, fluent2, material3, etc.. (replace theme name in CSS path)
@@ -46,21 +38,13 @@ Choose one theme and import it in your main CSS file or entry point:
 ### Step 1: Install Package
 
 ```bash
-npm install @syncfusion/ej2-react-grids@latest --save
+npm install @syncfusion/ej2-react-grids@latest @syncfusion/ej2-tailwind3-theme@latest --save
 ```
 
 ### Step 2: Import Styles in app/globals.css
 
 ```css
-@import '../node_modules/@syncfusion/ej2-base/styles/tailwind3.css';
-@import '../node_modules/@syncfusion/ej2-buttons/styles/tailwind3.css';
-@import '../node_modules/@syncfusion/ej2-calendars/styles/tailwind3.css';
-@import '../node_modules/@syncfusion/ej2-dropdowns/styles/tailwind3.css';
-@import '../node_modules/@syncfusion/ej2-inputs/styles/tailwind3.css';
-@import '../node_modules/@syncfusion/ej2-navigations/styles/tailwind3.css';
-@import '../node_modules/@syncfusion/ej2-popups/styles/tailwind3.css';
-@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/tailwind3.css';
-@import "../node_modules/@syncfusion/ej2-react-grids/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
 ```
 
 ### Step 3: Create Datasource File (app/datasource.ts)
@@ -122,7 +106,7 @@ export default function Home() {
 ### Step 1: Install Package
 
 ```bash
-npm install @syncfusion/ej2-react-grids@latest --save
+npm install @syncfusion/ej2-react-grids@latest @syncfusion/ej2-tailwind3-theme@latest --save
 ```
 
 ### Step 2: Configure vite.config.ts
@@ -140,15 +124,7 @@ export default defineConfig({
 ### Step 3: Import Styles in ~/app/routes/_index.tsx
 
 ```typescript
-import '@syncfusion/ej2-base/styles/tailwind3.css';
-import '@syncfusion/ej2-buttons/styles/tailwind3.css';
-import '@syncfusion/ej2-calendars/styles/tailwind3.css';
-import '@syncfusion/ej2-dropdowns/styles/tailwind3.css';
-import '@syncfusion/ej2-inputs/styles/tailwind3.css';
-import '@syncfusion/ej2-navigations/styles/tailwind3.css';
-import '@syncfusion/ej2-popups/styles/tailwind3.css';
-import '@syncfusion/ej2-splitbuttons/styles/tailwind3.css';
-import '@syncfusion/ej2-react-grids/styles/tailwind3.css';
+@import "@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
 ```
 
 ### Step 4: Add Component
@@ -178,20 +154,13 @@ export default function Index() {
 ### Step 1: Install Package
 
 ```bash
-npm install @syncfusion/ej2-react-grids@latest --save
+npm install @syncfusion/ej2-react-grids@latest @syncfusion/ej2-tailwind3-theme@latest --save
 ```
 
 ### Step 2: Import Styles in src/App.css
 
 ```css
-@import "../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-buttons/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-calendars/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-dropdowns/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-inputs/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-navigations/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-popups/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-react-grids/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
 ```
 
 ### Step 3: Add Component in src/App.jsx
@@ -227,20 +196,13 @@ export default App;
 ### Step 1: Install Package
 
 ```bash
-npm install @syncfusion/ej2-react-grids@latest --save
+npm install @syncfusion/ej2-react-grids@latest @syncfusion/ej2-tailwind3-theme@latest --save
 ```
 
 ### Step 2: Import Styles in src/style.css
 
 ```css
-@import "../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-buttons/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-calendars/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-dropdowns/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-inputs/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-navigations/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-popups/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-react-grids/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
 ```
 
 ### Step 3: Add Component in src/index.jsx
@@ -278,7 +240,7 @@ render(<App />, document.getElementById('app'));
 ### Step 1: Install Package
 
 ```bash
-npm install @syncfusion/ej2-react-grids@latest --save
+npm install @syncfusion/ej2-react-grids@latest @syncfusion/ej2-tailwind3-theme@latest --save
 ```
 
 ### Step 2: Import Styles in App.tsx
@@ -286,7 +248,7 @@ npm install @syncfusion/ej2-react-grids@latest --save
 Import theme CSS in your SharePoint component file:
 
 ```typescript
-require('@syncfusion/ej2-react-grids/styles/tailwind3.css');
+require('@syncfusion/ej2-tailwind3-theme/styles/grid/index.css');
 ```
 
 ### Step 3: Add Component in ~/src/webparts/app/components/App.tsx
@@ -295,7 +257,7 @@ require('@syncfusion/ej2-react-grids/styles/tailwind3.css');
 import * as React from 'react';
 import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
 
-require('@syncfusion/ej2-react-grids/styles/tailwind3.css');
+require('@syncfusion/ej2-tailwind3-theme/styles/grid/index.css');
 
 export default class App extends React.Component {
   public render(): React.ReactElement {

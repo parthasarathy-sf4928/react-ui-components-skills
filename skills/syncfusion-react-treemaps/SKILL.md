@@ -3,7 +3,7 @@ name: syncfusion-react-treemaps
 description: Comprehensive guide for implementing Syncfusion React TreeMap component. Use this skill when users need help creating hierarchical data visualizations, configuring drill-down interactions, applying color mapping, working with multiple hierarchy levels, customizing leaf items, or troubleshooting TreeMap data binding and display issues. Covers installation, data binding patterns, layouts, legends, tooltips, selection, accessibility, and advanced customization for interactive hierarchical data exploration.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

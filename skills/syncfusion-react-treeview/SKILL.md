@@ -3,7 +3,7 @@ name: syncfusion-react-treeview
 description: Implement Syncfusion React TreeView component for hierarchical data display with node selection, drag-drop reordering, inline editing, and custom templating. Use this when building organizational charts, file systems, navigation trees, or any multi-level hierarchical interface. Covers selection modes, checkboxes, filtering, sorting, keyboard navigation, accessibility, and performance optimization with stateless templates.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Navigation"
 ---
 

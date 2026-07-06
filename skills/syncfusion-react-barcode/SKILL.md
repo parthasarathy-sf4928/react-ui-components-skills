@@ -3,7 +3,7 @@ name: syncfusion-react-barcode
 description: "Generate, customize, and export barcodes in React using Syncfusion BarcodeGenerator. Trigger for requests involving Code39 or Code128 barcodes, QR codes, Data Matrix generation, barcode styling (size, color, text, margins), React component setup, props or events, SVG or canvas rendering, and exporting or printing barcode images."
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

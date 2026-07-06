@@ -3,7 +3,7 @@ name: syncfusion-react-blockeditor
 description: Implement the Syncfusion React BlockEditor component. Use this skill for block-based rich content editing, document creation, CMS interfaces, markdown alternatives, editor setup, block configuration, toolbar or menu customization, drag-and-drop behavior, formatting options, APIs, and accessibility in React.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion React Block Editor in React

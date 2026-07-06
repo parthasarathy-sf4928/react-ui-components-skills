@@ -8,7 +8,7 @@ description: |
   scrollable menus, persistence, and item state management.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Navigation Components"
 ---
 

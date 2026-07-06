@@ -3,7 +3,7 @@ name: syncfusion-react-speech-to-text
 description: Implement the Syncfusion React SpeechToText component. Use this skill to convert speech to text, manage microphone input, control listening states, process speech events, customize UI, support accessible voice-enabled forms, and handle globalization and security in React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion React SpeechToText Component

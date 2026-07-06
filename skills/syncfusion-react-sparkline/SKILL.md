@@ -3,7 +3,7 @@ name: syncfusion-react-sparkline
 description: Implement Syncfusion React Sparkline components for compact, inline data visualization. Use this when working with sparklines, mini charts, or trend indicators in constrained spaces. This skill covers all 5 sparkline types (line, column, area, win-loss, pie), tooltips, markers, data labels, range bands, axis customization, and themes. Ideal for displaying data trends within grids, dashboards, or tables without full-sized charts.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

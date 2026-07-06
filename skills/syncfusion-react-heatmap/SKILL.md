@@ -3,7 +3,7 @@ name: syncfusion-react-heatmap
 description: Implement Syncfusion React HeatMap Chart component for data visualization. Use this skill when user needs to create heatmaps, visualize 2D data patterns, display matrix data with color gradients, configure axes (numerical/categorical/datetime), implement legends, handle cell selection, apply custom styling, or work with large datasets. Covers installation, data binding, axis configuration, appearance customization, interaction patterns, tooltips, events, and accessibility.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

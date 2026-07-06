@@ -3,7 +3,7 @@ name: syncfusion-react-stepper
 description: "Implement and configure the Syncfusion React Stepper component for guided workflows. Use this skill when creating step-by-step navigation flows, multi-step forms, wizards, or process guides in React. This skill covers step configuration, orientation (horizontal/vertical), events, validation, animations, templates, accessibility, and globalization support for linear or non-linear workflows."
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Implementing Syncfusion React Stepper

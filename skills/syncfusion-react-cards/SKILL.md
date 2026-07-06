@@ -4,7 +4,7 @@ description: Build flexible card layouts for displaying content in React. The Ca
 metadata:
   author: "Syncfusion"
   category: "Layout Components"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Implementing React Card Component

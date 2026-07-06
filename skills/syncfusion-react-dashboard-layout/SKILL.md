@@ -3,7 +3,7 @@ name: syncfusion-react-dashboard-layout
 description: Build responsive, interactive dashboard layouts with Syncfusion React Dashboard Layout component. Implement draggable and resizable panels, responsive grid systems, dynamic panel management, and state persistence. This skill covers multi-column layouts, floating panel arrangement, extensive customization, drag-drop panel rearrangement, and state management for React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Implementing Syncfusion React Dashboard Layout

@@ -3,7 +3,7 @@ name: syncfusion-react-pivot-table
 description: Use this skill when users ask how to build or customize Syncfusion PivotView pivot tables in React. Trigger for React pivot grid/OLAP, aggregation, data binding (JSON/remote), drill-down/drill-through, grouping, filtering, conditional formatting, exports (Excel/PDF/CSV), or pivot charts. React-only, not Angular/Vue/Blazor.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Grids"
 ---
 

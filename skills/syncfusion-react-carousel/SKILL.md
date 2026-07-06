@@ -3,7 +3,7 @@ name: syncfusion-react-carousel
 description: Complete guide to implementing the Syncfusion React Carousel component for rotating image galleries, product carousels, slideshow presentations, testimonials, and sequential content display. Use this skill when working with slide transitions, navigation controls, animations, styling, and accessibility features. Covers installation, item population, and all API properties, methods, and events.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Navigation Components"
 ---
 

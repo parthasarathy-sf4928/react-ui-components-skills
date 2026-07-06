@@ -3,7 +3,7 @@ name: syncfusion-react-range-navigator
 description: Implements the Syncfusion React Range Navigator component for scrolling and navigating through data with range selection. Use this when users need time-based navigation, financial data visualization, or chart integration with a range selector control. Supports numeric, logarithmic, and DateTime data binding, multiple series types, period selector, lightweight mode, tooltips, RTL, and export/print functionality.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

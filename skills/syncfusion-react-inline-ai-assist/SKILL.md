@@ -3,7 +3,7 @@ name: syncfusion-react-inline-ai-assist
 description: Implement the Syncfusion React Inline AI Assist component. Use this skill to add inline AI suggestions, integrate AI services such as OpenAI, Gemini, Lite-LLM, or Ollama, configure command and response actions, customize toolbars, handle events, and support real-time prompt-response workflows in React.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion React Syncfusion React Inline AI Assist Component

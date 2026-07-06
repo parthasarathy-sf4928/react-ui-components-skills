@@ -3,7 +3,7 @@ name: syncfusion-react-accumulation-chart
 description: Implement Syncfusion React Accumulation Charts including Pie, Doughnut, Funnel, and Pyramid chart types. Use this skill when users need circular data visualization, percentage-based charts, or proportional data displays. Covers data labels, legends, tooltips, grouping, smart labels, drill-down charts, explode effects, theming, accessibility, export/print capabilities, and dynamic data updates.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

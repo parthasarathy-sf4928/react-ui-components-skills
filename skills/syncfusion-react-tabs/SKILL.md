@@ -4,7 +4,7 @@ description: |
   Implement and customize Tab components in Syncfusion React applications. Use this skill whenever the user needs to create tabbed interfaces, manage tab content rendering, configure header positioning, enable drag-and-drop reordering, or customize tab styling. Essential for building navigation layouts, content organization, responsive tab controls, localized tabs, and accessible tab interactions.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Navigation"
 ---
 

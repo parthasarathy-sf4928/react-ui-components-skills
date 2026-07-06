@@ -3,7 +3,7 @@ name: syncfusion-react-themes
 description: Use this skill when users need to apply themes, customize appearance, switch dark mode, use CSS variables, configure icons, or modify visual styling for Syncfusion React components. Covers icon library, size modes, and Theme Studio integration.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Theming and Appearance"
 ---
 
@@ -24,6 +24,12 @@ Syncfusion React components provide comprehensive theming support with modern, c
 - Available 10+ themes
 - Applying themes via npm packages, CDN, or individual component styles
 - Optimized (lite) CSS files for reduced bundle size
+
+### Migrating Styles from Component Packages to Theme Packages
+📄 **Read:** [references/migration-styles.md](references/migration-styles.md)
+- Migrate from component packages to theme packages
+- SCSS & CSS Reference migration to theme packages
+- Automatic dependency inclusion via index files
 
 ### Dark Mode Implementation
 📄 **Read:** [references/dark-mode.md](references/dark-mode.md)
@@ -62,20 +68,19 @@ Syncfusion React components provide comprehensive theming support with modern, c
 
 ### Install and Apply a Theme
 
-**Step 1: Install Syncfusion React Package**
+**Step 1: Install Syncfusion React Package and theme package**
 
 ```bash
-npm install @syncfusion/ej2-react-buttons --save
+npm install @syncfusion/ej2-react-buttons@latest @syncfusion/ej2-tailwind3-theme@latest --save
 ```
 
 **Step 2: Import Theme CSS**
 
-**Option 1: Import from npm (Recommended)**
+**Option 1: Import from npm theme packages (Recommended)**
 
 ```css
 /* src/App.css */
-@import "../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
-@import "../node_modules/@syncfusion/ej2-buttons/styles/tailwind3.css";
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/button/index.css";
 ```
 
 **Option 2: Use CDN**
@@ -178,21 +183,33 @@ Or per-component:
 
 ```css
 /* src/App.css - Lite version without bigger mode styles */
-@import "@syncfusion/ej2/tailwind3-lite.css";
+@import "@syncfusion/ej2-tailwind3-theme/styles/tailwind3-lite.css";
 ```
 
 ### Pattern 5: Use Icons from Syncfusion Library
 
 **Install icons package:**
 
+You can install either the icons package or the theme package:
+
 ```bash
-npm install @syncfusion/ej2-icons
+npm install @syncfusion/ej2-icons@latest
+
+/* or */
+
+npm install @syncfusion/ej2-tailwind3-theme@latest
 ```
 
 **Import icon styles:**
 
 ```css
 /* src/App.css */
+/* Syncfusion theme package icon styles */
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/icons/tailwind3.css";
+
+/* or */
+
+/* Syncfusion components package icon styles */
 @import "../node_modules/@syncfusion/ej2-icons/styles/tailwind3.css";
 ```
 

@@ -3,7 +3,7 @@ name: syncfusion-react-maps
 description: Implement Syncfusion React Maps component for geographical data visualization. Use this when displaying interactive maps, location-based information, or regional data analysis. This skill covers map providers (Bing, OpenStreetMap), GeoJSON rendering, markers and bubbles, zooming/panning, data labels, legends, and choropleth visualizations in React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

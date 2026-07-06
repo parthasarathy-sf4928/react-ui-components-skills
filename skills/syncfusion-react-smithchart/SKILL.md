@@ -3,7 +3,7 @@ name: syncfusion-react-smithchart
 description: Implements and customizes the Syncfusion React Smith Chart component for transmission line and RF circuit visualization. Use this when users need Smith Charts for impedance matching, RF design, or telecommunications data visualization. Covers series configuration, axis customization, markers, data labels, legend, tooltip, print/export, and accessibility features.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

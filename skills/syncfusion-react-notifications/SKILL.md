@@ -4,7 +4,7 @@ description: Comprehensive guide for implementing Syncfusion React Notification 
 metadata:
   author: "Syncfusion Inc"
   category: "Notifications"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Implementing Syncfusion React Notifications

@@ -3,7 +3,7 @@ name: syncfusion-react-dropdown-tree
 description: Implement Syncfusion React Dropdown Tree component for hierarchical data selection with dropdown interaction. Use this when working with multi-select checkboxes, lazy loading, remote OData integration, custom templates, keyboard navigation, RTL support, or localized interfaces. Supports auto-check hierarchy, filtering, tree settings, comprehensive event handling, and full accessibility.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Dropdowns"
 ---
 

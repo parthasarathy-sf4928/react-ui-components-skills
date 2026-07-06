@@ -3,7 +3,7 @@ name: syncfusion-react-timeline
 description: "Implement Syncfusion React Timeline component for displaying chronological sequences of events with customizable layouts, styling, and interactivity. Use this skill when creating timelines, displaying event sequences, showing milestone progression, creating activity feeds, or building chronological data visualizations. This covers career histories, project roadmaps, process flows, shipping tracking, and time-based event displays."
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Layout Components"
 ---
 

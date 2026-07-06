@@ -3,7 +3,7 @@ name: syncfusion-react-splitter
 description: "Implement Syncfusion React Splitter component for flexible, resizable panel layouts. Guide covers layout configuration, pane sizing, collapse/expand, resize events, content types, accessibility, and RTL support. Use this skill when building multi-panel interfaces with dynamic resizing capabilities."
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Layout Components"
 ---
 

@@ -3,7 +3,7 @@ name: syncfusion-react-ai-assistview
 description: Implement the Syncfusion React AI AssistView component. Use this skill to handle AI-powered conversational interfaces, AssistView setup, conversation flow, speech input or output, file attachments, UI customization, state management, and AI service integration such as OpenAI or Azure AI in React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion React AI AssistView Component

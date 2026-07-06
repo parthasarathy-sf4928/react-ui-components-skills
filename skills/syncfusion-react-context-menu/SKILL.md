@@ -3,7 +3,7 @@ name: syncfusion-react-context-menu
 description: Implements Syncfusion React ContextMenu (SfContextMenu) for right-click interactions and context-sensitive popup menus. Use this when adding menu items, handling selection events, or customizing templates and styling. Covers setup, data binding, accessibility, keyboard navigation, common methods and properties, and integration patterns.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Navigation"
 ---
 

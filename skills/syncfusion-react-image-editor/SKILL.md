@@ -3,7 +3,7 @@ name: syncfusion-react-image-editor
 description: Master Syncfusion React Image Editor for comprehensive image editing. Use this when users need to edit images, add annotations, apply filters, manage layers, or implement image editing features. Supports multiple formats (PNG, JPEG, SVG, WEBP, BMP), annotations (text, shapes, freehand, images), effects (filters, finetune), and accessibility features.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "File Viewers & Editors"
 ---
 

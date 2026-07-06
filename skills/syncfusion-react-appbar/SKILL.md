@@ -3,7 +3,7 @@ name: syncfusion-react-appbar
 description: Create responsive navigation headers with AppBar component. Build top, bottom, or sticky app bars with buttons, menus, icons, and sidebars. Use when building navigation elements, toolbars, action bars, or responsive headers with dynamic content layout. Includes color modes (Light, Dark, Primary, Inherit), size modes (Regular, Prominent, Dense), spacing, separators, and full accessibility support.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Navigation"
 ---
 

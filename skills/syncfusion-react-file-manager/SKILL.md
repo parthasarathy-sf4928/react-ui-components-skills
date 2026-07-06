@@ -3,7 +3,7 @@ name: syncfusion-react-file-manager
 description: Implement Syncfusion React File Manager component for file system navigation and management. Use when users need file browsing, upload/download, file operations (create, delete, rename), multiple views, drag-drop, customization, or accessibility features. Supports local and remote file systems with comprehensive customization options.
 metadata:
     author: "Syncfusion Inc"
-    version: "33.1.44"
+    version: "34.1.29"
 ---
 
 # Syncfusion React File Manager

@@ -3,7 +3,7 @@ name: syncfusion-react-bullet-chart
 description: Implements the Syncfusion React Bullet Chart component for KPI and performance indicator visualization. Use this when users need feature measure displays, comparative measures, target comparisons, or metric visualizations. Covers data binding, value bars, target bars, ranges, titles, tooltips, data labels, axis customization, orientation, and accessibility.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

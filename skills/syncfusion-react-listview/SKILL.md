@@ -4,7 +4,7 @@ description: Implement Syncfusion React ListView component for displaying dynami
 metadata:
   author: "Syncfusion Inc"
   category: "Lists"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Implementing Syncfusion React ListView

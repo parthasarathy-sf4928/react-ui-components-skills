@@ -3,7 +3,7 @@ name: syncfusion-react-linear-gauge
 description: Implement Syncfusion React Linear Gauge for displaying measurements on a linear scale. Use this skill when users need temperature sensors, KPI indicators, progress gauges, or real-time monitoring dashboards. Covers axes configuration, pointer types, ranges, annotations, customization, animations, print/export, accessibility, and internationalization.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

@@ -3,7 +3,7 @@ name: syncfusion-react-3d-circular-chart
 description: Implements the Syncfusion React 3D Circular Chart component for pie and donut chart visualization. Use this when users need 3D circular charts, data labels, legends, tooltips, or empty point handling. Guides through installation, configuration, customization, and troubleshooting of 3D Circular Charts in React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

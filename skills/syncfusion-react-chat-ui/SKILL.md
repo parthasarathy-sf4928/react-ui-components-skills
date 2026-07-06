@@ -3,7 +3,7 @@ name: syncfusion-react-chat-ui
 description: Implement the Syncfusion React Chat UI component. Use this skill to create and customize messaging interfaces, including chat setup, message rendering, file attachments, typing indicators, conversation layout, theming, event handling, and real-time updates in React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion React Chat-UI in Syncfusion React

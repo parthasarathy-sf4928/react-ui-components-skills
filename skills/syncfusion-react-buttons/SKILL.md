@@ -3,7 +3,7 @@ name: syncfusion-react-buttons
 description: Comprehensive guide for implementing Syncfusion React button components including Button, ButtonGroup, DropDownButton, Floating Action Button, ProgressButton, SplitButton, Speed Dial, Switch, RadioButton, and Chips. Use this when adding styled buttons, toggle behavior, icon support, grouped selections, dropdown action menus, programmatic control floating primary actions, expandable speed dial menus, compact interactive elements with avatars and drag-and-drop, or single/multiple selection capabilities to a React application.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Buttons"
 ---
 

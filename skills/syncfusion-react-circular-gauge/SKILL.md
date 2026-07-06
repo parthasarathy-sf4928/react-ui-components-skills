@@ -3,7 +3,7 @@ name: syncfusion-react-circular-gauge
 description: Implement Syncfusion React Circular Gauge for displaying KPIs, sensor data, speedometers, and real-time monitoring dashboards. Use this skill when users need to visualize quantitative measurements on a circular scale. Covers axes, pointers, ranges, customization, animations, print/export, accessibility, and internationalization.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

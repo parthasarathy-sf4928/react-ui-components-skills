@@ -3,7 +3,7 @@ name: syncfusion-react-diagram
 description: Create and customize visual diagrams in React using Syncfusion Diagrams. Trigger for requests involving React component setup, nodes and connectors, flowcharts, org charts, process diagrams, BPMN or UML models, layout algorithms, swimlanes, symbol palettes, and interactive diagram visualization features.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

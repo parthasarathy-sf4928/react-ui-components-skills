@@ -3,7 +3,7 @@ name: syncfusion-react-scheduler
 description: "Implement Syncfusion React Scheduler component for calendar, event scheduling, and appointment management. Use this when building scheduling systems, calendar applications, booking systems, or time management interfaces. Covers all scheduler views (Day, Week, Month, Timeline, Agenda, Year), data binding, resource scheduling, recurring events, CRUD operations, drag-and-drop scheduling, customization, accessibility, and advanced features."
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Calendars"
 ---
 

@@ -4,7 +4,7 @@ description: |
   Guide users to implement Syncfusion React Accordion component for collapsible content panels. Use this skill whenever the user needs to create expandable/collapsible sections, accordion layouts, tabbed content panels, multi-step forms, FAQs, or navigation with expandable items. Covers component setup, expand modes, animations, dynamic content loading, styling, events, lifecycle, React hooks integration, and complete API reference.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Navigation Components"
 ---
 

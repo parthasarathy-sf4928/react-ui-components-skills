@@ -3,7 +3,7 @@ name: syncfusion-react-stock-chart
 description: Implements the Syncfusion React Stock Chart component for visualizing financial and market data. Use this when users need stock price visualization, OHLC charts, candlestick charts, or trading chart interfaces. Supports multiple series types, period selectors, range navigators, technical indicators (e.g., SMA, MACD, Bollinger Bands), and interactive analysis tools for financial data in React applications.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

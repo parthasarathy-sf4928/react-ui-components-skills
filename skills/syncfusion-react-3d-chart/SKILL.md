@@ -3,7 +3,7 @@ name: syncfusion-react-3d-chart
 description: Implement Syncfusion React 3D Chart component from the @syncfusion/ej2-react-charts package. Use this skill when users need 3D column, bar, stacked column, stacked bar, or 100% stacked chart variations. Covers Chart3DComponent, axis configuration (category, numeric, datetime, logarithmic), data binding, multiple panes, data labels, legends, tooltips, selection, print/export, theming, and accessibility.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 

@@ -3,7 +3,7 @@ name: syncfusion-react-sankey
 description: Implement Syncfusion React Sankey Chart to visualize energy flows, process dependencies, and hierarchical relationships between nodes. Use this skill when creating Sankey diagrams, flow visualizations, or node-link networks. Covers installation, nodes and links configuration, labeling, legends, tooltips, events, appearance customization, RTL support, accessibility, and export features.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
   category: "Data Visualization"
 ---
 
