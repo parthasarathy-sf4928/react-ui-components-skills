@@ -1,6 +1,6 @@
 ---
 name: syncfusion-react-ai-assistview
-description: Implement the Syncfusion React AI AssistView component. Use this skill to handle AI-powered conversational interfaces, AssistView setup, conversation flow, speech input or output, file attachments, UI customization, state management, and AI service integration such as OpenAI or Azure AI in React applications.
+description: Implement the Syncfusion React AI AssistView component. Use this skill to handle AI-powered conversational interfaces, AssistView setup, conversation flow, speech input or output, file attachments, UI customization, state management, chain of thoughts reasoning visualization, generative UI with dynamic tools, and AI service integration such as OpenAI or Azure AI in React applications.
 metadata:
   author: "Syncfusion Inc"
   version: "34.1.29"
@@ -15,6 +15,7 @@ The **Syncfusion React AI AssistView** component is a comprehensive interactive 
 ### Core Capabilities
 - **Prompt-Response Management**: Manage conversation history with automatic data collection
 - **Real-time Streaming**: Stream AI responses character-by-character for live typing effects
+- **Chain of Thoughts**: Visualize AI reasoning process through thinking blocks with multi-stage workflow support
 - **Template System**: Customize every UI element (banners, prompt items, responses, suggestions, footer)
 - **Multi-View Support**: Switch between conversation assist view and custom content views
 - **Voice Integration**: Built-in Speech-to-Text (voice input) and Text-to-Speech (voice output)
@@ -30,6 +31,7 @@ The **Syncfusion React AI AssistView** component is a comprehensive interactive 
 - **Avatar Customization**: Customize user and AI icons/avatars
 - **Scroll Management**: Auto-scroll or manual scroll-to-bottom button
 - **Clear Functionality**: Clear current prompt or entire conversation
+- **Regenerate Responses**: Request alternative AI responses for existing prompts without resubmitting queries
 - **Responsive Design**: Works on desktop and mobile with responsive layouts
 
 ## Documentation and Navigation Guide
@@ -89,6 +91,8 @@ The **Syncfusion React AI AssistView** component is a comprehensive interactive 
 - **Control item visibility and enabled state dynamically**
 - **Set tab order for keyboard navigation**
 - Manage attachment button behavior
+- **Enable regenerate responses functionality for multiple AI-generated responses**
+- **Navigate between regenerated responses with previous/next buttons**
 
 ### File Attachments
 📄 **Read:** [references/file-attachments.md](references/file-attachments.md)
@@ -102,6 +106,7 @@ The **Syncfusion React AI AssistView** component is a comprehensive interactive 
 - **Validate files before upload**
 - **Initialize prompts with pre-attached files**
 - Handle server-side file processing
+- Custom attachment templates (attachmentTemplate)
 
 ### Custom Views
 📄 **Read:** [references/custom-views.md](references/custom-views.md)
@@ -134,15 +139,37 @@ The **Syncfusion React AI AssistView** component is a comprehensive interactive 
 - Error handling and rate limiting
 - Security considerations for API keys
 
+### Generative UI
+📄 **Read:** [references/generative-ui.md](references/generative-ui.md)
+- **Register custom tools with registerToolUI() method**
+- **Configure tool templates and handlers for rendering**
+- **Add interactive elements (charts, cards, custom tools) via blocks property**
+- **Render multiple tools within single AI response**
+- **Configure AI system prompts for structured JSON generation**
+- **AI service integration with generative UI blocks**
+
 ### Speech Capabilities
 📄 **Read:** [references/speech-capabilities.md](references/speech-capabilities.md)
 - Enable Speech-to-Text (voice input)
 - Configure speech recognition language
 - Handle interim transcripts while speaking
-- Implement Text-to-Speech (voice output)
+- Implement Text-to-Speech (voice output) via Web Speech API
+- **Convert AI responses to spoken audio**
+- **Customize TTS with textToSpeechSettings (language, speechPitch, speechRate, volume, voice)**
 - Customize button labels and icons
 - Handle speech events (start, stop, transcript, error)
 - Browser compatibility notes
+
+### Chain of Thoughts
+📄 **Read:** [references/chain-of-thoughts.md](references/chain-of-thoughts.md)
+- **Visualize AI reasoning process with thinking blocks**
+- **Configure thinking blocks with stages and status updates**
+- **Add multi-stage reasoning workflows (completed, inprogress, failed)**
+- **Customize thinking block templates**
+- **Add inline context items with badges and tooltips**
+- **Handle editableContextClicked events for interactive context**
+- **Configure stage-level item templates**
+- Stream thinking blocks for real-time reasoning visualization
 
 ### Methods and APIs
 📄 **Read:** [references/methods-and-apis.md](references/methods-and-apis.md)
@@ -224,6 +251,15 @@ Support file uploads with prompts:
 - Include file data in prompt context
 - Send files to backend API
 
+### Pattern 6: Chain of Thoughts Reasoning
+Visualize AI's step-by-step reasoning process:
+- Inject AssistThinking module for thinking block support
+- Create thinking blocks with multiple reasoning stages
+- Use status updates (completed, inprogress, failed) for real-time progress
+- Stream thinking blocks alongside text responses
+- Add context items to highlight referenced tools or files
+- Customize block and stage templates for branded styling
+
 ---
 
 ## Key Props & Configuration
@@ -257,13 +293,20 @@ Support file uploads with prompts:
 - `enableAttachments`: Enable file uploads (default: false)
 - `attachmentSettings`: File upload configuration
 - `speechToTextSettings`: Voice input configuration
+- `textToSpeechSettings`: Text-to-speech configuration
 - `toolbarSettings`: Header toolbar configuration
 - `footerToolbarSettings`: Footer toolbar configuration
 - `responseToolbarSettings`: Response action toolbar
 - `promptToolbarSettings`: Prompt toolbar configuration
+- `blockTemplate`: Custom template for thinking blocks and other response blocks
+- `itemTemplate`: Custom template for individual stages within thinking blocks
 - `locale`: Localization/globalization setting (default: 'en-US')
 - `enableRtl`: Enable right-to-left rendering (default: false)
 - `enablePersistence`: Enable state persistence (default: false)
+
+### Generative UI Props
+- **`blocks`**: Array of response blocks (TextBlock, ToolBlock, ThinkingBlock) to render dynamic UI elements within responses
+- **`registerToolUI()`**: Public method to register custom tool templates for rendering interactive components (charts, cards, custom tools) within AI responses
 
 ### Event Props
 - `created`: Component lifecycle event
@@ -274,6 +317,7 @@ Support file uploads with prompts:
 - `attachmentUploadSuccess`: File upload success event
 - `attachmentUploadFailure`: File upload failure event
 - `attachmentRemoved`: File removal event
+- `editableContextClicked`: Fires when user clicks an inline context item in thinking blocks
 
 ---
 
@@ -306,5 +350,23 @@ Combine chat with settings and content:
 2. Use templates for custom view content
 3. Implement view switching logic
 4. Share conversation state between views
+
+### Thinking-Enabled Reasoning Assistant
+Showcase AI's reasoning process for complex tasks:
+1. Inject AssistThinking module for thinking block support
+2. Configure thinking blocks with multiple stages
+3. Stream blocks with status updates (inprogress → completed)
+4. Add context items (tools, files, search results) within stages
+5. Customize block templates for transparent reasoning display
+6. Handle editableContextClicked for interactive exploration
+
+### Generative UI with Dynamic Interactive Tools
+Render dynamic interactive components and custom tools within AI responses:
+1. Register custom tools (charts, cards, forms) using registerToolUI()
+2. Configure tool templates for responsive UI rendering
+3. Define blocks array with TextBlock and ToolBlock combinations
+4. Configure AI system prompt for structured JSON generation
+5. Send tool blocks within addPromptResponse() calls
+6. Create rich, interactive experiences with AI-generated UI elements
 
 ---

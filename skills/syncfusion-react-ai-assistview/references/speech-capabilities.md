@@ -8,7 +8,7 @@
 - [Button Customization](#button-customization)
 - [Speech-to-Text Events](#speech-to-text-events)
 - [Text-to-Speech Setup](#text-to-speech-setup)
-- [Text-to-Speech Toolbar Integration](#text-to-speech-toolbar-integration)
+- [Tooltip Configuration](#tooltip-configuration)
 - [Browser Compatibility](#browser-compatibility)
 
 ## Speech-to-Text Overview
@@ -266,12 +266,19 @@ export default App;
 
 ## Text-to-Speech Setup
 
-### Enable Response Audio
+The AI AssistView supports built-in Text-to-Speech (TTS) functionality using the browser's Web Speech API ([SpeechSynthesisUtterance](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance)). This allows AI-generated responses to be converted into spoken audio, enhancing accessibility and user interaction.
 
-Add Text-to-Speech button to response toolbar:
+### Prerequisites
+
+1. Syncfusion AI AssistView component is properly set up in your React application
+2. Browser with Web Speech API support (Chrome, Edge, Firefox, Safari, Opera)
+
+### Configure Text-to-Speech
+
+To enable the built-in Text-to-Speech functionality, add the `e-assist-audio` response toolbar item to the `items` collection of the `responseToolbarSettings` property. When clicked, it fetches the text from the generated AI response and uses the browser's SpeechSynthesis API to read it aloud.
 
 ```tsx
-import { AIAssistViewComponent, ResponseToolbarSettingsModel, ToolbarItemClickedEventArgs } from '@syncfusion/ej2-react-interactive-chat';
+import { AIAssistViewComponent, PromptRequestEventArgs, ResponseToolbarSettingsModel } from '@syncfusion/ej2-react-interactive-chat';
 import React, { useRef } from 'react';
 
 function App() {
@@ -279,34 +286,24 @@ function App() {
 
     const responseToolbarSettings: ResponseToolbarSettingsModel = {
         items: [
-            { type: 'Button', iconCss: 'e-icons e-audio', tooltip: 'Read Aloud' }
-        ],
-        itemClicked: (args: ToolbarItemClickedEventArgs) => {
-            if (args.item.iconCss === 'e-icons e-audio') {
-                speakResponse(args.dataIndex);
-            }
-        }
+            { type: 'Button', iconCss: 'e-icons e-assist-copy', tooltip: 'Copy' },
+            { type: 'Button', iconCss: 'e-icons e-assist-audio', tooltip: 'Read Aloud' },
+            { type: 'Button', iconCss: 'e-icons e-assist-like', tooltip: 'Like' },
+            { type: 'Button', iconCss: 'e-icons e-assist-dislike', tooltip: 'Need Improvement' }
+        ]
     };
 
-    const speakResponse = (index: number) => {
-        const response = assistInstance.current?.prompts[index].response;
-        if (response) {
-            // Extract plain text from HTML response
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = response;
-            const text = tempDiv.textContent || '';
-            
-            // Use Web Speech API
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'en-US';
-            speechSynthesis.speak(utterance);
-        }
+    const handlePromptRequest = (args: PromptRequestEventArgs) => {
+        setTimeout(() => {
+            assistInstance.current?.addPromptResponse('For real-time prompt processing, connect the AI AssistView component to your preferred AI service, such as OpenAI or Azure Cognitive Services.');
+        }, 1000);
     };
 
     return (
-        <AIAssistViewComponent 
+        <AIAssistViewComponent
             id="aiAssistView"
             ref={assistInstance}
+            promptRequest={handlePromptRequest}
             responseToolbarSettings={responseToolbarSettings}
         />
     );
@@ -315,70 +312,131 @@ function App() {
 export default App;
 ```
 
-## Text-to-Speech Toolbar Integration
+### Configuring Text-to-Speech Settings
 
-### Add Audio Controls to Response Toolbar
+You can customize the speech synthesis behavior using the `textToSpeechSettings` property. Available customization options include:
+
+#### Properties
+
+- **language**: Speech synthesis language code (e.g., 'en-US', 'fr-FR')
+- **speechPitch**: Voice pitch level (0.1 to 2, default: 1)
+- **speechRate**: Speaking speed (0.1 to 10, default: 1)
+- **volume**: Audio volume level (0 to 1, default: 1)
+- **voice**: Selected voice from available system voices
+
+#### Example: Customizing TTS Settings
 
 ```tsx
-import { marked } from 'marked';
+import { AIAssistViewComponent, PromptModel, PromptRequestEventArgs, ResponseToolbarSettingsModel, ToolbarSettingsModel } from '@syncfusion/ej2-react-interactive-chat';
+import React, { useRef } from 'react';
 
-const responseToolbarSettings: ResponseToolbarSettingsModel = {
-    items: [
-        { type: 'Button', iconCss: 'e-icons e-assist-copy', tooltip: 'Copy' },
-        { type: 'Button', iconCss: 'e-icons e-audio', tooltip: 'Read Aloud' },
-        { type: 'Button', iconCss: 'e-icons e-assist-like', tooltip: 'Like' }
-    ],
-    itemClicked: (args: ToolbarItemClickedEventArgs) => {
-        const response = assistInstance.current?.prompts[args.dataIndex].response;
-        
-        switch (args.item.iconCss) {
-            case 'e-icons e-audio':
-                readResponseAloud(response);
-                break;
-            case 'e-icons e-assist-copy':
-                navigator.clipboard.writeText(response);
-                break;
+function App() {
+    const assistInstance = useRef<AIAssistViewComponent>(null);
+
+    const assistViewToolbarSettings: ToolbarSettingsModel = {
+        items: [{ iconCss: 'e-icons e-refresh', align: 'Right' }],
+        itemClicked: (args: any) => {
+            if (args.item.iconCss === 'e-icons e-refresh') {
+                if (assistInstance.current) {
+                    assistInstance.current.prompts = [];
+                }
+            }
         }
-    }
-};
+    };
 
-const readResponseAloud = (htmlResponse: string) => {
-    // Extract plain text
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = htmlResponse;
-    const plainText = tempDiv.textContent || '';
-    
-    // Speak
-    const utterance = new SpeechSynthesisUtterance(plainText);
-    utterance.rate = 1.0;        // Speed
-    utterance.pitch = 1.0;       // Pitch
-    utterance.volume = 1.0;      // Volume
-    
-    speechSynthesis.speak(utterance);
-};
+    const responseToolbarSettings: ResponseToolbarSettingsModel = {
+        items: [
+            { type: 'Button', iconCss: 'e-icons e-assist-audio', tooltip: 'Read Aloud' },
+            { type: 'Button', iconCss: 'e-icons e-assist-like', tooltip: 'Like' },
+            { type: 'Button', iconCss: 'e-icons e-assist-dislike', tooltip: 'Need Improvement' }
+        ]
+    };
+
+    // Configure the Text-to-Speech behavior
+    const textToSpeechSettings = {
+        language: 'en-US',
+        speechPitch: 1,
+        speechRate: 1,
+        volume: 1
+    };
+
+    // Sample prompt data
+    const promptsData: PromptModel[] = [
+        {
+            prompt: "What is AI?",
+            response: "AI stands for Artificial Intelligence, enabling machines to mimic human intelligence for tasks such as learning, problem-solving, and decision-making."
+        }
+    ];
+
+    const handlePromptRequest = (args: PromptRequestEventArgs) => {
+        if (!args.prompt.trim()) return;
+
+        const defaultResponse = 'For real-time prompt processing, connect the AI AssistView component to your preferred AI service, such as OpenAI or Azure Cognitive Services.';
+        assistInstance.current?.addPromptResponse(defaultResponse, true);
+    };
+
+    return (
+        <AIAssistViewComponent
+            id="aiAssistView"
+            ref={assistInstance}
+            prompts={promptsData}
+            promptRequest={handlePromptRequest}
+            toolbarSettings={assistViewToolbarSettings}
+            responseToolbarSettings={responseToolbarSettings}
+            textToSpeechSettings={textToSpeechSettings}
+        />
+    );
+}
+
+export default App;
 ```
 
-### Play/Pause Toggle
+#### Language Support
+
+Common language codes for text-to-speech:
 
 ```tsx
-let currentUtterance: SpeechSynthesisUtterance | null = null;
+// English
+'en-US'      // United States
+'en-GB'      // Great Britain
+'en-AU'      // Australia
 
-const handleAudioClick = (response: string) => {
-    if (currentUtterance && speechSynthesis.speaking) {
-        // Stop playing
-        speechSynthesis.cancel();
-        currentUtterance = null;
-    } else {
-        // Start playing
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = response;
-        const text = tempDiv.textContent || '';
-        
-        currentUtterance = new SpeechSynthesisUtterance(text);
-        speechSynthesis.speak(currentUtterance);
-    }
+// Spanish
+'es-ES'      // Spain
+'es-MX'      // Mexico
+
+// French
+'fr-FR'      // France
+'fr-CA'      // Canada
+
+// German
+'de-DE'      // Germany
+
+// Japanese
+'ja-JP'      // Japan
+
+// Mandarin Chinese
+'zh-CN'      // Simplified Chinese
+'zh-TW'      // Traditional Chinese
+```
+
+#### Speech Pitch and Rate
+
+```tsx
+const textToSpeechSettings = {
+    language: 'en-US',
+    speechPitch: 1.5,    // Ranges from 0.1 (low) to 2 (high)
+    speechRate: 0.8,     // Ranges from 0.1 (slow) to 10 (fast)
+    volume: 0.9          // Ranges from 0 (silent) to 1 (max)
 };
 ```
+
+### TTS Button Behavior
+
+When the `e-assist-audio` button is clicked:
+- The component extracts the text from the AI response
+- The Web Speech API synthesizes the text into audio using configured settings
+- The audio plays based on the language, pitch, rate, and volume settings
 
 ## Tooltip Configuration
 

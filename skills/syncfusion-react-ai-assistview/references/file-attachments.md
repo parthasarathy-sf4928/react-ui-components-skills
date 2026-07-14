@@ -91,6 +91,48 @@ allowedFileType: '.pdf, .doc, .docx, .png, .jpg, .jpeg'
 // Don't specify allowedFileType property
 ```
 
+## Attachment Templates
+
+Control how attachments appear inside message bubbles after sending using `attachmentTemplate`:
+
+```tsx
+import { AIAssistViewComponent, AttachmentSettingsModel } from '@syncfusion/ej2-react-interactive-chat';
+import React, { useRef } from 'react';
+
+function App() {
+    const assistInstance = useRef<AIAssistViewComponent>(null);
+
+    // Attachment template - displays in message bubble
+    const attachmentTemplate = (props: any): JSX.Element => {
+        const file = props.selectedFile;
+        
+        return (
+            <div className="e-attached-file-temp">
+                <div className="attached-file-name">{file.name}</div>
+                <div className="attached-file-type">{file.type}</div>
+            </div>
+        );
+    };
+
+    const attachmentSettings: AttachmentSettingsModel = {
+        saveUrl: 'https://services.syncfusion.com/js/production/api/FileUploader/Save',
+        removeUrl: 'https://services.syncfusion.com/js/production/api/FileUploader/Remove'
+    };
+
+    return (
+        <AIAssistViewComponent
+            id="aiAssistView"
+            ref={assistInstance}
+            enableAttachments={true}
+            attachmentSettings={attachmentSettings}
+            attachmentTemplate={attachmentTemplate}
+        />
+    );
+}
+
+export default App;
+```
+
 ## File Size Management
 
 ### Setting Maximum File Size

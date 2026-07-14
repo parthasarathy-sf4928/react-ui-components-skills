@@ -160,8 +160,25 @@ Default options in the context menu:
 - **Paste** - Insert from clipboard
 - **Indent** - Increase block indentation
 - **Outdent** - Decrease block indentation
-- **Link** - Add or edit hyperlink
+- **Link** - Add, edit, or manage hyperlinks
+- **Table** - Insert or delete table rows and columns
 - **Delete** - Remove block
+
+### Table Context Menu Options
+
+When the cursor is focused within a table cell, the context menu displays table-specific actions:
+
+- **Insert** - Add new rows or columns to the table
+- **Delete** - Remove existing rows or columns from the table
+
+### Link Context Menu Options
+
+When the cursor is focused on a link, the context menu provides the following options:
+
+- **Open Link** - Navigate to the linked URL
+- **Edit Link** - Modify the link URL or title
+- **Copy Link** - Copy the link URL to the clipboard
+- **Remove Link** - Delete the link while preserving the text
 
 ### Customize Context Menu
 

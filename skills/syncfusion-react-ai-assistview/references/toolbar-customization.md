@@ -6,6 +6,7 @@
 - [Header Toolbar Setup](#header-toolbar-setup)
 - [Response Toolbar Items](#response-toolbar-items)
 - [Custom Toolbar Items](#custom-toolbar-items)
+- [Regenerate Responses](#regenerate-responses)
 - [Toolbar Positioning](#toolbar-positioning)
 - [Icon Customization](#icon-customization)
 - [Item Click Handling](#item-click-handling)
@@ -623,6 +624,152 @@ function App() {
 }
 
 export default App;
+```
+
+## Regenerate Responses
+
+The AI AssistView supports regenerate functionality, allowing users to request alternative AI responses for an existing prompt without resubmitting the original query. Multiple responses are saved in the `regeneratedResponses` property in the prompts collection.
+
+### Overview
+
+When a response is regenerated, the navigation UI automatically appears with:
+- **Previous/Next Buttons**: Navigate between all regenerated responses
+- **Response Counter**: Display current response position (e.g., `1 / 3`)
+- **Regenerate Button**: Request a new response for the same prompt
+
+> The navigation UI appears automatically once more than one response is available for a prompt, either regenerated or preloaded using the `regeneratedResponses` property.
+
+### Adding Regenerate Item
+
+You can enable the regenerate button by adding the `e-assist-regenerate` icon to the `items` collection of the `responseToolbarSettings` property:
+
+```tsx
+import { AIAssistViewComponent, PromptRequestEventArgs, ToolbarSettingsModel, PromptModel } from '@syncfusion/ej2-react-interactive-chat';
+import React, { useRef } from 'react';
+
+function App() {
+    const assistInstance = useRef<AIAssistViewComponent>(null);
+
+    const promptsData: PromptModel[] = [
+        {
+            prompt: "What is AI?",
+            response: "AI stands for Artificial Intelligence, enabling machines to mimic human intelligence for tasks such as learning, problem-solving, and decision-making."
+        }
+    ];
+
+    const regenerateResponses: string[] = [
+        "AI, or Artificial Intelligence, refers to the simulation of human intelligence in machines programmed to think and learn like humans.",
+        "Artificial Intelligence is the development of computer systems capable of performing tasks that typically require human intelligence.",
+        "AI is a branch of computer science focused on building machines that can perform tasks requiring human-like intelligence."
+    ];
+
+    const responseToolbarSettings: ToolbarSettingsModel = {
+        items: [
+            { type: 'Button', iconCss: 'e-icons e-assist-copy', tooltip: 'Copy' },
+            { type: 'Button', iconCss: 'e-icons e-assist-like', tooltip: 'Like' },
+            { type: 'Button', iconCss: 'e-icons e-assist-dislike', tooltip: 'Need Improvement' },
+            { type: 'Button', iconCss: 'e-icons e-assist-regenerate', tooltip: 'Regenerate' }
+        ]
+    };
+
+    const onPromptRequest = (args: PromptRequestEventArgs) => {
+        setTimeout(() => {
+            const isRegenerate: boolean = promptsData.some((p: PromptModel) => p.prompt === args.prompt);
+            const response: string = isRegenerate
+                ? regenerateResponses[Math.floor(Math.random() * regenerateResponses.length)]
+                : 'For real-time prompt processing, connect the AI AssistView component to your preferred AI service, such as OpenAI or Azure Cognitive Services.';
+            assistInstance.current.addPromptResponse(response);
+        }, 1000);
+    };
+
+    return (
+        <AIAssistViewComponent
+            id="regenerate-response"
+            prompts={promptsData}
+            responseToolbarSettings={responseToolbarSettings}
+            promptRequest={onPromptRequest}
+            ref={assistInstance}
+        />
+    );
+}
+
+export default App;
+```
+
+### Preloading Regenerated Responses
+
+You can preload multiple responses for a prompt using the `regeneratedResponses` property in the prompts collection. This is useful when you already have multiple responses available:
+
+```tsx
+import { AIAssistViewComponent, PromptRequestEventArgs, ToolbarSettingsModel, PromptModel } from '@syncfusion/ej2-react-interactive-chat';
+import React, { useRef } from 'react';
+
+function App() {
+    const assistInstance = useRef<AIAssistViewComponent>(null);
+
+    const promptsData: PromptModel[] = [
+        {
+            prompt: "What is AI?",
+            response: "AI stands for Artificial Intelligence, enabling machines to mimic human intelligence for tasks such as learning, problem-solving, and decision-making.",
+            regeneratedResponses: [
+                "AI, or Artificial Intelligence, refers to the simulation of human intelligence in machines programmed to think and learn like humans.",
+                "Artificial Intelligence is the development of computer systems capable of performing tasks that typically require human intelligence.",
+                "AI is a branch of computer science focused on building machines that can perform tasks requiring human-like intelligence."
+            ]
+        }
+    ];
+
+    const responseToolbarSettings: ToolbarSettingsModel = {
+        items: [
+            { type: 'Button', iconCss: 'e-icons e-assist-copy', tooltip: 'Copy' },
+            { type: 'Button', iconCss: 'e-icons e-assist-like', tooltip: 'Like' },
+            { type: 'Button', iconCss: 'e-icons e-assist-dislike', tooltip: 'Need Improvement' },
+            { type: 'Button', iconCss: 'e-icons e-assist-regenerate', tooltip: 'Regenerate' }
+        ]
+    };
+
+    const onPromptRequest = (args: PromptRequestEventArgs) => {
+        setTimeout(() => {
+            assistInstance.current.addPromptResponse('For real-time prompt processing, connect the AI AssistView component to your preferred AI service, such as OpenAI or Azure Cognitive Services.');
+        }, 1000);
+    };
+
+    return (
+        <AIAssistViewComponent
+            id="regenerate-preload"
+            prompts={promptsData}
+            responseToolbarSettings={responseToolbarSettings}
+            promptRequest={onPromptRequest}
+            ref={assistInstance}
+        />
+    );
+}
+
+export default App;
+```
+
+### Handling Regenerate Events
+
+You can handle the regenerate action through the `itemClicked` event of the `responseToolbarSettings`:
+
+```tsx
+const responseToolbarSettings: ToolbarSettingsModel = {
+    items: [
+        { type: 'Button', iconCss: 'e-icons e-assist-copy', tooltip: 'Copy' },
+        { type: 'Button', iconCss: 'e-icons e-assist-like', tooltip: 'Like' },
+        { type: 'Button', iconCss: 'e-icons e-assist-dislike', tooltip: 'Need Improvement' },
+        { type: 'Button', iconCss: 'e-icons e-assist-regenerate', tooltip: 'Regenerate' }
+    ],
+    itemClicked: (args: ToolbarItemClickedEventArgs) => {
+        if (args.item.iconCss === 'e-icons e-assist-regenerate') {
+            const promptIndex = args.dataIndex;
+            const currentPrompt = assistInstance.current.prompts[promptIndex];
+            console.log('Regenerating response for:', currentPrompt.prompt);
+            // Call your AI service to generate a new response
+            assistInstance.current.addPromptResponse('New regenerated response here');
+        }
+    }
+};
 ```
 
 ## Toolbar Positioning

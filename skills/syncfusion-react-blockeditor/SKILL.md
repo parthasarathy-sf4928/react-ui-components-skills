@@ -1,6 +1,6 @@
 ---
 name: syncfusion-react-blockeditor
-description: Implement the Syncfusion React BlockEditor component. Use this skill for block-based rich content editing, document creation, CMS interfaces, markdown alternatives, editor setup, block configuration, toolbar or menu customization, drag-and-drop behavior, formatting options, APIs, and accessibility in React.
+description: Implement the Syncfusion React BlockEditor component for block-based content editing. Use this skill for block-based rich content editing, document creation, CMS interfaces, markdown alternatives, editor setup, block configuration, toolbar or menu customization, drag-and-drop behavior, formatting options, APIs, accessibility, real-time collaborative editing with Yjs integration, user presence and remote cursors, document version history and snapshot management in React.
 metadata:
   author: "Syncfusion Inc"
   version: "34.1.29"
@@ -22,6 +22,7 @@ The BlockEditorComponent provides:
 - **Content export** - Export as JSON, HTML, or plain text
 - **Accessibility** - WCAG 2.1 compliant with keyboard navigation and screen reader support
 - **Customization** - Custom styling, themes, RTL support, globalization
+- **Collaborative Editing** - Real-time multi-user editing powered by Yjs, with user presence and remote cursors, document version history and snapshot management
 
 ## Documentation Navigation Guide
 
@@ -43,10 +44,10 @@ The BlockEditorComponent provides:
 ### Menus and Commands
 📄 **Read:** [references/block-editor-menus.md](references/block-editor-menus.md)
 - Slash command menu customization
-- Context menu configuration
-- Inline toolbar setup
+- Context menu configuration with Table and Link options
+- Inline toolbar setup with Transform, code, link, and color support
+- Block action menu customization and tooltips
 - Menu events and filtering
-- Block actions and shortcuts
 
 ### Drag-Drop and Content Management
 📄 **Read:** [references/drag-drop-and-content.md](references/drag-drop-and-content.md)
@@ -84,6 +85,8 @@ The BlockEditorComponent provides:
 - Read-only mode configuration
 - XSS protection and HTML sanitization
 - RTL support and internationalization
+
+
 
 ### Accessibility
 📄 **Read:** [references/accessibility.md](references/accessibility.md)
@@ -208,13 +211,15 @@ const exportContent = () => {
 | `imageBlockSettings` | `ImageBlockSettingsModel` | Configure image upload and rendering |
 | `codeBlockSettings` | `CodeBlockSettingsModel` | Configure code block languages |
 | `pasteCleanupSettings` | `PasteCleanupSettingsModel` | Control paste sanitization behavior |
-| `users` | `UserModel[]` | User list for `@mention` feature |
+| `users` | `UserModel[]` | User list for `@mention` feature and collaboration presence with avatar colors |
 | `labelSettings` | `LabelSettingsModel` | Label items and trigger char for label feature |
 | `enableDragAndDrop` | `boolean` | Enable/disable drag-and-drop reordering (default: `true`) |
 | `undoRedoStack` | `number` | Max number of undo/redo history steps |
 | `keyConfig` | `{ [key: string]: string }` | Custom keyboard shortcut mappings |
 | `locale` | `string` | Localization language code (default: `'en-US'`) |
 | `blockChanged` | `EmitType<BlockChangedEventArgs>` | Fires when block content changes |
+| `collaborationSettings` | `CollaborationSettingsModel` | Configure real-time collaboration with Yjs provider, awareness, and version history |
+| `currentUserId` | `string` | Unique identifier of the current user for collaboration and cursor identification |
 
 ## Common Use Cases
 
